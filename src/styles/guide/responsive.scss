@@ -1,0 +1,21 @@
+$breakpoints: (
+    // basic:
+    mobile: 320px,
+    extra-small: 377px,
+    small: 576px,
+    medium: 767px,
+    large: 991px,
+    extra-large: 1200px,
+    ipad-landscape: 1025px,
+    laptop: 1366px
+);
+
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (max-width: #{map-get($breakpoints, $breakpoint)}) {
+            @content;
+        }
+    } @else {
+        @warn "No such breakpoint in the map: `#{$breakpoint}`. ";
+    }
+}

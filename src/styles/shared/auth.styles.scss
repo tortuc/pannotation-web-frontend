@@ -1,0 +1,85 @@
+@import '../guide/responsive';
+@import "../base";
+
+$key-note-width: 160px;
+$key-note-height: 410px;
+
+.authentication {
+
+    &.wider {
+        width: 410px;
+    }
+
+    &-wrapper {
+        background-color: $white;
+    }
+
+    &-container {
+        margin: 2% auto 60px auto;
+        width: 371px;
+        background-color: $white;
+
+        @include respond-to(small) {
+            width: 300px;
+        }
+
+        @include respond-to(extra-small) {
+            width: 277px;
+        }
+    }
+}
+
+.h2 {
+    margin-bottom: 60px;
+    font-family: Avenir, sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: $charcoal-grey;
+}
+
+.below-auth {
+    font-size: 14px;
+    margin-top: 20px;
+    line-height: 1.43;
+    color: #999999;
+}
+
+.message-with-note {
+    @extend %flex-centered;
+    position: relative;
+    min-height: $key-note-height;
+
+    > *:not(.key-note__wr) {
+        z-index: 2;
+    }
+
+    .h2 {
+        margin-bottom: 15px;
+    }
+
+    .text {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: center;
+        color: $brown-grey;
+    }
+}
+
+.key-note {
+    width: $key-note-width;
+    height: $key-note-height;
+
+    &__wr {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
+}

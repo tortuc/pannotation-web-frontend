@@ -1,0 +1,154 @@
+@import "../../styles/defaults/color-classes";
+@import "responsive.scss";
+
+.other-files__content {
+    overflow: hidden;
+
+    h1 {
+        font-family: "Avenir", sans-serif;
+        font-size: 54px;
+        font-weight: 900;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.26;
+        letter-spacing: 2.5px;
+        color: $charcoal-grey;
+    }
+
+    h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 45px;
+        font-weight: 800;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $charcoal-grey;
+    }
+
+    h3 {
+        font-family: "Avenir", sans-serif;
+        font-size: 32px;
+        font-weight: 900;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.19;
+        letter-spacing: normal;
+        color: $charcoal-grey;
+    }
+
+    h4 {
+        font-family: "Avenir", sans-serif;
+        font-size: 20px;
+        font-weight: 900;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.5px;
+        color: #212121;
+    }
+
+    h5 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+        color: $charcoal-grey;
+    }
+
+    p {
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 24px;
+        letter-spacing: normal;
+        color: #393E41;
+    }
+
+    & > img,
+    & > * img {
+        width: 100%;
+        margin-top: 15px;
+    }
+    table {
+        display: block;
+        overflow-x: auto;
+        cursor: pointer;
+
+        @include respond-to(extra-large) {
+            &::-webkit-scrollbar {
+                width: 0;
+                background: transparent;
+            }
+        }
+    }
+
+    th {
+        border-bottom: none;
+        padding-bottom: 20px;
+        padding-left: 30px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 2.66px;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: $brown-grey;
+
+        @include respond-to(small) {
+            &:first-child {
+                text-align: center;
+            }
+        }
+    }
+    tbody {
+        tr {
+            position: relative;
+            transform: scale(1);
+            overflow-x: auto;
+
+            &::after {
+                content: '';
+                position: absolute;
+                display: block;
+                overflow-x: auto;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                border-radius: 5px;
+                border: 0.5px solid $very-light-pink;
+                pointer-events: visible;
+                z-index: -1;
+            }
+
+            &:not(:last-child)::after {
+                border-bottom: none;
+            }
+
+            & > td {
+                border: none;
+                padding: 29px;
+                overflow-wrap: break-word;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 245px;
+
+                p {
+                    margin-bottom: 0;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: 245px;
+                }
+            }
+        }
+    }
+}

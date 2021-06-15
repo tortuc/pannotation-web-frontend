@@ -1,0 +1,22 @@
+<div class="modal-body">
+    <span class="close-btn" (click)="decline()"></span>
+    <h2 class="text-center cropper-header">Upload photo</h2>
+    <div class="cropper-wrapper">
+        <angular-cropper #angularCropper
+            [cropperOptions]="cropperConfig"
+            [imageUrl]="imageSource">
+        </angular-cropper>
+    </div>
+    <div class="buttons-wrapper">
+        <div class="modal-buttons row m-0">
+            <button class="cropper-modal-button btn btn-primary mx-0 col-md-5" (click)="accept()">Accept</button>
+            <button class="cropper-modal-button btn btn-secondary offset-md-2 col-md-5" (click)="decline()">Decline</button>
+        </div>
+        <div class="cropper-navigation">
+            <span class="cropper-nav-btn rotate-left" (click)="angularCropper.cropper.rotate(-45)"></span>
+            <span class="cropper-nav-btn rotate-right" (click)="angularCropper.cropper.rotate(45)"></span>
+            <span class="cropper-nav-btn mirror-vertical" (click)="scaleY()"></span>
+            <span class="cropper-nav-btn mirror-horizontal" (click)="scaleX()"></span>
+        </div>
+    </div>
+</div>

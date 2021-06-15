@@ -1,0 +1,59 @@
+@import "../../../../styles/guide/responsive";
+
+.profile-info {
+    margin: 60px 0 0 0;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    & > img {
+        object-fit: contain;
+    }
+
+    &__placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #d9d9d9;
+
+        &:before {
+            font-size: 125px;
+        }
+    }
+
+    &__actions {
+        margin-top: 25px;
+
+        & > label {
+            cursor: pointer;
+        }
+
+        & > button {
+            background-color: transparent;
+            border: none;
+            margin-left: 15px;
+        }
+    }
+}
+
+.form-actions {
+
+    & > button {
+        min-width: 160px;
+
+        @include respond-to(small) {
+            min-width: calc(100% / 2 - 7px);
+        }
+
+        @include respond-to(mobile) {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+}

@@ -1,0 +1,37 @@
+<div class="authentication-wrapper w-100 h-100 overflow-auto">
+    <div class="authentication-container" [class.wider]="isSuccessful | async">
+        <div content class="w-100">
+            <div class="row h-100">
+                <div *ngIf="!(isSuccessful | async)" class="col-lg-12">
+                    <div toolbar>
+                        <h2 class="h2 font-bold text-center">{{ 'SignUp.Title' | translate }}</h2>
+                        <div class="have-account text-center">
+                            <span>{{ 'SignUp.HaveAccount' | translate }}</span>
+                            <a routerLink="/sign-in">{{ 'SignUp.SignInHere' | translate }}</a>
+                        </div>
+                    </div>
+                    <form [formGroup]="form" (ngSubmit)="submit(model)">
+                        <formly-form [form]="form" [fields]="fields" [model]="model">
+                            <button type="submit" [disabled]="!form.valid || (submitBtnDissabled | async)" class="btn btn-primary block full-width m-b">
+                                {{ 'SignUp.Register' | translate }}
+                            </button>
+                        </formly-form>
+                    </form>
+                </div>
+                <div *ngIf="(isSuccessful | async)" class="col-lg-12 verify-email-text-block message-with-note h-100">
+                    <div class="key-note__wr">
+                        <img class="key-note" [src]="icKeyNote" alt="key note">
+                    </div>
+                    <div class="signup-verify-text text-center">
+                        {{ 'SignUp.VerifyText' | translate }}
+                    </div>
+                    <div class="signup-check-inbox text-center">
+                        {{ 'SignUp.CheckInboxText' | translate }}
+                    </div>
+                    <a class="btn btn-sm btn-block good-btn" href="/">{{ 'SignUp.ResendBtn' | translate }}</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+<ng-template #aboudPannotationContent let-descr="descr" let-title="title" let-img="titleImg">
+    <div class="about-content col-md-4">
+        <p class="about-content__description mb-5 px-3">{{descr}}</p>
+        <div class="about-content__title-block">
+            <img class="about-content__title-img" src={{img}} />
+            <h3 class="about-content__title pl-4 py-1 my-0">{{title}}</h3>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #subscriptionContent let-title="title" let-descr="descr">
+    <div class="subscription-content col-md-6">
+        <h3 class="subscription-content__title">{{title}}</h3>
+        <p class="subscription-content__description">{{descr}}</p>
+    </div>
+</ng-template>
+
+<div class="container-fluid">
+    <div class="row block block-heading">
+        <ngx-slick-carousel #slickMain
+            [config]="mainRowConfig | async">
+            <div class="slide" *ngFor="let slide of slides" ngxSlickItem>
+                <div class="slide-background">
+                    <div class="slide-dim"></div>
+                    <img [src]="slide.img" class="slide-background__img" alt="slide">
+                </div>
+                <div class="slide-content">
+                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                        <div class="row w-100 justify-content-center">
+                            <div class="col-10 text-center d-flex flex-column align-items-center">
+                                <h1 class="block-heading__title text-uppercase">{{slide.title}}</h1>
+                                <p class="block-heading__description">{{slide.descr}}</p>
+                                <a href={{slide.linkRoute}} class="btn btn-primary d-flex align-items-center">{{slide.linkText}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ngx-slick-carousel>
+    </div>
+
+    <div class="row block block-about-pannotation">
+        <div class="container">
+            <h2 class="h2">What is PanNotation?</h2>
+            <div class="row container about-block-wrapper">
+                <div class="d-flex align-items-center">
+                    <div class="row">
+                        <ng-container *ngFor="let block of aboutBlocks"
+                                      [ngTemplateOutlet]="aboudPannotationContent"
+                                      [ngTemplateOutletContext]="block">
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row block block-featured">
+        <div class="container" #cardsAnchor>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h2 class="h2">Featured Scores:</h2>
+                </div>
+                <div class="col-6 d-md-flex d-none justify-content-end align-items-start">
+                    <button [disabled]="leftArrowBtnDisabled"
+                            (click)="slickModal.slickPrev()"
+                            class="block-featured-actions">
+                        <img src="assets/img/ic-arrow-left.svg" alt="Arrow left">
+                    </button>
+                    <button [disabled]="rightArrowBtnDisabled"
+                            (click)="slickModal.slickNext()"
+                            class="block-featured-actions">
+                        <img src="assets/img/ic-arrow-right.svg" alt="Arrow right">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container cards-row">
+            <div class="cards-wrapper">
+                <ngx-slick-carousel #slickModal="slick-carousel"
+                                    (beforeChange)="beforeSlideChange($event)"
+                                    [config]="cardsRowConfig | async">
+                    <app-search-item [songsheet]="card" [forSlider]="true" #slickItem *ngFor="let card of featured | async;trackBy: trackByFn" ngxSlickItem
+                                   class="featured-card"></app-search-item>
+                </ngx-slick-carousel>
+            </div>
+        </div>
+    </div>
+    <div class="row block block-subscription">
+        <div class="container">
+            <h2 class="h2">Subscription details:</h2>
+            <div class="row">
+                <div class="col-xl-8 d-flex align-items-center">
+                    <div class="row">
+                        <ng-container *ngFor="let subscription of subscriptions"
+                                      [ngTemplateOutlet]="subscriptionContent"
+                                      [ngTemplateOutletContext]="subscription">
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="subscription-card">
+                        <p class="subscription-card__title">Monthly Subscription</p>
+                        <p class="subscription-card__description">Fully access all non-score materials including articles, media, podcasts, interviews and much more. Get discounted rates on scores and upload materials at no additional cost.</p>
+                        <p class="subscription-card__price">$9.99</p>
+                        <a [routerLink]="['/subscription']" class="btn btn-primary subscription-card__button">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row block block-ads">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="ads">
+                        <p class="ads-title">Academic Article, Blogs, Audio Recording, Interviews, Podcasts and other materials coming soon</p>
+                        <p class="ads-description">For one low subscription fee</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

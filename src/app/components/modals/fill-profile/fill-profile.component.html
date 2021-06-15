@@ -1,0 +1,13 @@
+<div class="modal-header">
+    {{ 'FillProfile.Title' | translate }}
+</div>
+<div class="modal-body">
+    <form [formGroup]="form" (ngSubmit)="submit(model)">
+        <formly-form [form]="form" [fields]="fields" [model]="model">
+            <button type="submit" [disabled]="!form.valid" class="btn btn-primary block full-width m-b">
+                {{ 'FillProfile.Proceed' | translate }}
+            </button>
+        </formly-form>
+    </form>
+</div>
+

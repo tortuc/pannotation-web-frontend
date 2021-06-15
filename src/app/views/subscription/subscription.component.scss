@@ -1,0 +1,224 @@
+@import "../../../styles/base";
+@import "../../../styles/guide/responsive";
+@import "../../../styles/guide/misc";
+
+$key-note-width: 102px;
+$key-note-height: 262px;
+
+:host {
+    display: block;
+    margin-top: 60px;
+
+    justify-content: center;
+    @include height-100;
+
+    @include respond-to(large) {
+        margin-bottom: 15px;
+    }
+}
+
+.h1 {
+    font-family: "Avenir", sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 30px;
+    color: $charcoal-grey;
+    margin-bottom: 60px;
+}
+
+.subscribe-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 115px;
+    position: relative;
+    border-radius: 5px;
+    background-color: $white;
+    box-shadow: 0 5px 50px -25px rgba(0, 0, 0, 0.25);
+
+    > *:not(.key-note) {
+        z-index: 2;
+    }
+
+    &__title {
+        color: $charcoal-grey;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    &__description {
+        max-width: 380px;
+        color: $brown-grey;
+        font-size: 14px;
+        line-height: 22px;
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    &__price {
+        color: $charcoal-grey;
+        font-size: 45px;
+        font-weight: 800;
+        line-height: 55px;
+        margin-bottom: 60px;
+    }
+
+    &__agreement-block {
+        padding: 40px;
+        background-color: #4b4b4b;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        @include respond-to(medium) {
+
+            flex-wrap: wrap;
+            justify-content: center;
+
+            & > button {
+                margin-top: 30px;
+            }
+        }
+
+        .custom-control {
+            margin-right: 40px;
+            display: flex;
+
+            @include respond-to(medium) {
+                margin-right: 0;
+            }
+
+            & > p {
+                margin-bottom: 0;
+
+                & > a {
+                    color: white;
+                }
+            }
+            &-label {
+                font-family: Montserrat;
+                font-size: 12px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.5;
+                letter-spacing: normal;
+
+                &::before,
+                &::after {
+                    top: 3px;
+                    transition: none;
+                    box-shadow: none !important;
+                    width: 24px;
+                    height: 24px;
+                    left: -35px;
+                    cursor: pointer;
+                }
+
+                &::before {
+                    border: #393e41 solid 1px;
+                }
+            }
+
+            &-input {
+                &:checked ~ .custom-control-label::before {
+                    border-color: #393e41;
+                    background-color: #ffffff;
+                }
+
+                &:not(:disabled):active ~ .custom-control-label::before {
+                    border-color: #393e41;
+                    background-color: #ffffff;
+                }
+
+            }
+        }
+    }
+
+    &.inverted {
+        background-color: #3B3B3B;
+
+        .subscribe-card {
+            &__title, &__price {
+                color: $white;
+            }
+        }
+    }
+}
+
+
+.key-note {
+    width: $key-note-width;
+    height: $key-note-height;
+
+    &__wr {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        padding-top: 95px;
+        align-items: center;
+        z-index: 1;
+    }
+}
+
+.subscribe-row, .faq-row {
+    margin-bottom: 120px;
+
+    @include respond-to(large) {
+        margin-bottom: 15px;
+    }
+}
+
+.question {
+    &__title {
+        color: #393E41;
+        font-family: "Avenir", sans-serif;
+        font-size: 18px;
+        letter-spacing: 2.29px;
+        line-height: 30px;
+        text-transform: uppercase;
+    }
+}
+
+.faq-elem {
+    margin-bottom: 35px;
+
+    &__head {
+        cursor: pointer;
+    }
+
+    &__button .btn {
+        color: $orange-red;
+        margin-right: 30px;
+    }
+
+    &__title {
+        color: $charcoal-grey;
+        font-family: "Avenir", sans-serif;
+        font-size: 18px;
+        letter-spacing: 2.29px;
+        line-height: 30px;
+        text-transform: uppercase;
+
+        @include respond-to(medium) {
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+
+    &__text {
+        padding-top: 15px;
+        padding-left: 50px;
+        color: $brown-grey;
+        font-size: 14px;
+        line-height: 22px;
+    }
+}

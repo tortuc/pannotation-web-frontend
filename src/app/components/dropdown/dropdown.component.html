@@ -1,0 +1,28 @@
+<label *ngIf="to.label">{{to.label}}</label>
+<div class="btn-group d-block" dropdown>
+    <button dropdownToggle type="button" [disabled]="formControl.disabled" class="dropdown-toggle dropdown-btn d-block w-100 text-left"
+        aria-controls="dropdown-basic">
+        <ng-content *ngIf="to?.multi==='true'; then multiLabel else textLabel"></ng-content>
+        <ng-template #multiLabel>
+            {{ to.defaultValue }}
+        </ng-template>
+        <ng-template #textLabel>
+            {{ (value | async) || to.defaultValue }}
+        </ng-template>
+        <p class="dropdown__placeholder" *ngIf="!(value | async) && to.placeholder">{{to.placeholder}}</p>
+    </button>
+    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-list dropdown-menu-right" role="menu"
+        aria-labelledby="button-basic">
+        <li role="menuitem" *ngFor="let item of to.options" (click)="onSelect(item)">
+            <ng-content *ngIf="to?.multi==='true'; then multiView else textView"></ng-content>
+            <ng-template #multiView>
+                <a class="dropdown-item dropdown-link">
+                    <input *ngIf="isChosen(item)" type="checkbox" id={{item}} checked>
+                    <input *ngIf="!isChosen(item)" type="checkbox" id={{item}}>
+                    {{item}}
+                </a>
+            </ng-template>
+            <ng-template #textView> <a class="dropdown-item dropdown-link">{{item}}</a></ng-template>
+        </li>
+    </ul>
+</div>

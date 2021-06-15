@@ -1,0 +1,30 @@
+<div class="player" *ngIf="audio && trackLoaded | async">
+    <div class="player-slider">
+        <mv-slider [(value)]="timeSlider" [min]="0" [max]="audio.duration" [enabled]="true" (change)="change($event)"></mv-slider>
+    </div>
+    <div class="player-navigation">
+        <div class="player-navigation__primary">
+            <button class="player-btn-prev" (click)="rewindTime(-10)">
+                <img src="assets/img/ic-back.svg" alt="Back icon">
+            </button>
+            <button (click)="audio.play()" *ngIf="audio.paused" class="player-btn-play">
+                <img src="assets/img/ic-play.svg" alt="Play icon">
+            </button>
+            <button (click)="audio.pause()" *ngIf="audio.played && !audio.paused" class="player-btn-pause">
+                <img src="assets/img/ic-pause.svg" alt="Pause icon">
+            </button>
+            <button class="player-btn-prev" (click)="rewindTime(10)">
+                <img src="assets/img/ic-forward.svg" alt="Forward icon">
+            </button>
+        </div>
+        <div class="player-navigation__secondary">
+            <p class="player-time">{{(time | async) | date: 'm:ss'}}</p>
+
+            <div class="volume-slider" *ngIf="!(volumeSliderHidden | async)">
+                <mv-slider [(value)]="volumeSlider" [min]="0" [max]="1" [step]="0.01" [enabled]="true" (change)="volumeChange($event)"></mv-slider>
+            </div>
+
+            <button class="player__volume-btn" [class.muted]="audio.muted" (click)="onDisableVolume()"></button>
+        </div>
+    </div>
+</div>

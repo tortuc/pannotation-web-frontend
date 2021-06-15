@@ -1,0 +1,104 @@
+.dropdown-btn {
+    height: 61px;
+    border: 1px solid #393e41;
+    border-radius: 4px;
+    background-color: #ffffff;
+    padding-left: 13px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+
+    &::after {
+        position: absolute;
+        right: 15px;
+        top: 45%;
+    }
+}
+
+.dropdown-list {
+    border: 1px solid #393e41;
+    border-radius: 0 0 4px 4px;
+    margin-top: -2px;
+    width: 100%;
+    box-shadow: none;
+    max-height: 239px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-size: 14px;
+    font-weight: 500;
+
+    // &::-webkit-scrollbar { width: 0 !important }
+
+    // & { overflow: -moz-scrollbars-none; }
+
+    // & { -ms-overflow-style: none; }
+
+    .dropdown-link {
+        color: #999999;
+        white-space: pre-wrap;
+    }
+
+    .dropdown-link:hover {
+        background-color: #fff;
+        color: #393e41;
+    }
+}
+
+input[type="checkbox"] {
+    margin-top: 2px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: white;
+    height: 12px;
+    width: 12px;
+    border: 1px solid #999999;
+}
+
+input[type="checkbox"]:checked {
+    background: white;
+}
+
+input[type="checkbox"]:disabled {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+input[type="checkbox"]:after {
+    content: "";
+    position: relative;
+    left: 10%;
+    top: 10%;
+    width: 70%;
+    height: 50%;
+    border: solid #ee4036;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    display: none;
+}
+
+input[type="checkbox"]:checked:after {
+    display: block;
+}
+
+input[type="checkbox"]:disabled:after {
+    border-color: #7b7b7b;
+}
+
+.dropdown__placeholder {
+    color: #999999;
+    padding: 0;
+    margin: -2px 0 0 0;
+    font-weight: 500;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}

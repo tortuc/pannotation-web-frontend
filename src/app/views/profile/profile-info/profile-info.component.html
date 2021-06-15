@@ -1,0 +1,54 @@
+<ng-container *ngIf="(activeScreen | async) === PROFILE_STATES.Info; then profileInfo else profileEdit"></ng-container>
+
+<ng-template #profileInfo>
+    <div class="profile-info" *ngIf="(profile | async) as user">
+        <div class="container">
+            <div class="row d-flex justify-content-between">
+                <div class="col-md-5">
+                    <div class="profile-info__primary d-flex align-items-center flex-md-row flex-column">
+                        <app-photo [photo]="(avatar | async)?.changingThisBreaksApplicationSecurity" [size]="{ height: 150, width: 150 }"></app-photo>
+                        <div class="profile-info__primary-text d-flex flex-column mt-md-0 mt-3">
+                            <h3 class="typography-heading-level-3-web charcoal-grey">
+                                {{user.firstName}} {{user.lastName}}
+                            </h3>
+                            <p *ngIf="user.isComposer" class="typography-heading-level-6-medium charcoal-grey text-center text-md-left">
+                                Contributor, ID: {{user.idCode}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 d-flex justify-content-md-end justify-content-center mt-md-0 mt-3">
+                    <button class="btn btn-primary edit-btn" (click)="onEditClick()">Edit</button>
+                </div>
+            </div>
+            <div class="delimiter"></div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="profile-info__secondary">
+                        <div class="profile-info__secondary-item" *ngFor="let field of fieldNames">
+                            <p *ngIf="!!user[field]"
+                               class="profile-info__secondary-label typography-body-level-1-medium brown-grey">
+                                {{fieldLabels.get(field)}}:
+                            </p>
+                            <p class="typography-body-level-1-medium text-ellipsis"
+                               *ngIf="!!user[field]">
+                                {{ field === 'phoneNumber' || field === 'mobileNumber'? (user[field] | phoneNumber) : user[field] }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #profileEdit>
+    <app-profile-edit
+        *ngIf="(profile | async) as user"
+        [profileForm]="profileForm"
+        [activeState]="activeScreen"
+        [avatar]="avatar | async"
+        [fields]="fields"
+        [model]="model">
+    </app-profile-edit>
+</ng-template>

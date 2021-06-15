@@ -1,0 +1,22 @@
+<div class="contact-us">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-6">
+                <div>
+                    <h3 class="typography-heading-level-3-web charcoal-grey mb-4">
+                        Contact Us
+                    </h3>
+                    <form [formGroup]="contactUsForm" (ngSubmit)="submit(model)">
+                        <formly-form [form]="contactUsForm" [fields]="fields" [model]="model">
+                            <div class="form-actions d-flex justify-content-end">
+                                <button type="submit" [disabled]="!contactUsForm.valid" class="btn btn-secondary d-inline-block w-100 mt-3">
+                                    Send
+                                </button>
+                            </div>
+                        </formly-form>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<ng-container
+    *ngTemplateOutlet="!!songsheet.fileType && songsheet.fileType !== 'Songsheet' ?
+    otherFileTemplate :
+    songsheetTemplate
+    ">
+</ng-container>
+
+<ng-template #songsheetTemplate>
+    <div class="card featured-card slide" [ngClass]="{'featured-card__home': forSlider, 'featured-card__search': !forSlider }">
+        <div class="featured-card__image">
+            <a href="/music-scores/{{songsheet.id}}">
+                <img [src]="songsheet.image.compactPath" alt="image">
+            </a>
+        </div>
+        <div class="featured-card__details">
+            <div class="d-flex flex-column">
+                <p class="featured-card__tags">{{instruments}}</p>
+                <p class="featured-card__tags">{{genres}}</p>
+                <a href="/music-scores/{{songsheet.id}}">
+                    <p class="featured-card__title text-ellipsis">{{songsheet.name}}</p>
+                </a>
+                <p class="featured-card__author text-ellipsis">{{songsheet.artistName}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center">
+                <p class="featured-card__price">${{songsheet.price}}</p>
+                <button class="btn btn-secondary" (click)="onBuyClick(songsheet.id)">Buy</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #otherFileTemplate>
+    <div class="card featured-card slide" [ngClass]="{'featured-card__home': forSlider, 'featured-card__search': !forSlider }">
+        <div class="featured-card__image">
+            <a href="/other/{{songsheet.id}}">
+                <img [src]="songsheet.image.compactPath" alt="image">
+            </a>
+        </div>
+        <div class="featured-card__details">
+            <div class="d-flex flex-column">
+                <p class="featured-card__tags">{{otherFileTypes[songsheet.fileType]}}</p>
+                <a href="/other/{{songsheet.id}}">
+                    <p class="featured-card__title text-ellipsis">{{songsheet.name}}</p>
+                </a>
+            </div>
+            <div class="d-flex flex-row justify-content-end align-items-center">
+                <button class="btn btn-secondary" (click)="onShowClick(songsheet.id)">Show</button>
+            </div>
+        </div>
+    </div>
+</ng-template>

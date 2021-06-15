@@ -1,0 +1,121 @@
+{
+    "Header": {
+        "Sign in": "Войти",
+        "Sign up": "Регистрация",
+        "Sign out": "Выход"
+    },
+    "Navigation": {
+        "Home": "Главная",
+        "Profile": "Профиль",
+        "AddProduct": "Создать продукт/услугу",
+        "MyEarnings": "Мой зароботок",
+        "Language": {
+            "Placeholder": "Язык",
+            "en": "en",
+            "ru": "ru"
+        }
+    },
+    "Validation": {
+        "Common": {
+            "Required": "Обязательное поле",
+            "Email": "Неправильный формат",
+            "InvalidValue": "Неправильное значение",
+            "MinLength": "Это значение должно иметь не меньше чем {{value}} символов",
+            "MaxLength": "Это значение должно иметь не больше чем {{value}} символов",
+            "Min": "Это значение должно быть меньше {{value}}",
+            "Max": "Это значение должно быть больше {{value}}",
+            "MustBeNumber": "Это значение должно быть числом",
+            "MustBeNumberAndMinLength": "Это значение должно быть числом и не меньше чем {{value}} символов"
+        },
+        "WrongImageFormat": "Неверный формат, должен быть .png или .jpg",
+        "MinImageSize": "Минимальный размер изображения должен быть 150x150",
+        "MaxImageFileSize": "Изображение слищком большое, должно быть меньше чем 10Мб"
+    },
+    "Category": {
+        "Breakfast": "Завтрак",
+        "Lunch": "Обед",
+        "Dinner": "Ужин"
+    },
+    "Gender": {
+        "Male": "Мужской",
+        "Female": "Женский"
+    },
+    "Kitchen": {
+        "Italian": "Итальянска",
+        "Ukrainian": "Украинская",
+        "International": "Международная",
+        "Chinese": "Китайская"
+    },
+    "Songsheets": {
+        "CreateProductHeader": "Создание продукта/услуги",
+        "EditProductHeader": "Редактирование продукта/услуги",
+        "ProductHeader": "Продукт/Услуга",
+        "Form": {
+            "SaveBtn": "Сохранить",
+            "SaveChangesBtn": "Сохранить изменения",
+            "CancelBtn": "Отменить",
+            "AddPhotoBtn": "Добавить фото",
+            "SuccessCreateMsg": "Продукт создан",
+            "SuccessEditMsg": "Продукт изменен",
+            "TitleLabel": "Заглавие",
+            "TitlePlaceholder": "Добавьте заглавие",
+            "DescriptionLabel": "Описание",
+            "DescriptionPlaceholder": "Добавьте описание",
+            "CategoryLabel": "Категория",
+            "GenderLabel": "Пол",
+            "KitchenLabel": "Кухня",
+            "PriceLabel": "Цена",
+            "PricePlaceholder": "Введите цену"
+        },
+        "BuyBtn": "Купить",
+        "SandMessageBtn": "Отправить сообщение",
+        "EditBtn": "Изменить",
+        "DeleteBtn": "Удалить",
+        "ProviderLabel": "Поставщик",
+        "ProductPhotoAlt": "Фото продукта",
+        "ProviderAvatarAlt": "Аватар профайдера",
+        "SuccessDeleteMsg": "Продукт удален",
+        "ConfirmationDeleteTitle": "Удаление продукта",
+        "ConfirmationDeleteMsg": "Вы уверены что хотите удалить этот продукт?"
+    },
+    "Modals": {
+        "DeclineBtn": "Отклонить",
+        "AcceptBtn": "Принять"
+    },
+    "Earnings": {
+        "Title": "Мой заработок",
+        "AmountLabel": "Количество",
+        "HoldLabel": "Вывод",
+        "WithdrawBtn": "Вывести",
+        "ApplyBtn": "Применить",
+        "CancelBtn": "Отменить",
+        "AmountPlaceholder": "Количество для снятия",
+        "BalanceLabel": "Баланс",
+        "WaitingConfirmationLabel": "Ожидает подтверждения"
+    },
+    "Card": {
+        "Title": "Карты",
+        "Header": "Управление вашими платежными картами",
+        "AddNew": "Добавить новую карту",
+        "Expiry": "Срок действия:",
+        "Form": {
+            "Title": "Добавить иформацию о карте",
+            "EditTitle": "Изменить метод оплаты",
+            "Number": "Номер карты",
+            "Month": "MM",
+            "Year": "YYYY",
+            "CVV": "CVV",
+            "ExpirationError": "Дата истечения срока действия не в правильном формате"
+        }
+    },
+    "Users": {
+        "Successful": "Ваши данные успешно сохранены",
+        "DeleteAccountBtn": "Удалить мою учетную запись",
+        "DeleteAccountTitle": "Удалить учетною запись",
+        "DeleteAccountMessage": "Вы уверенны что хотите удалить свою учетною запись?",
+        "DeleteAccountWithBalanceMessage": "У вас есть {{balance}} на балансе. У вас {{hold}} в ожидании вывода. Вы уверенны что хотите удалить свою учетною запись?",
+        "NotVerifiedMsg": "Ваш электронный адрес не подтвержден",
+        "VerifyBtn": "Подтвердить",
+        "VerifyEmailMsg": "Письмо со ссылкой для подтверждения отправлено"
+    }
+}

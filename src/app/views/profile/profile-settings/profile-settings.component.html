@@ -1,0 +1,24 @@
+<div class="profile-settings">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-7">
+                <div class="profile-change-password">
+                    <h3 class="typography-heading-level-3-web charcoal-grey mb-3 text-center">
+                        Change Password
+                    </h3>
+                    <form [formGroup]="settingsForm" (ngSubmit)="submit(model)">
+                        <formly-form [form]="settingsForm" [fields]="fields" [model]="model">
+                            <div class="form-actions d-flex justify-content-end">
+                                <button type="submit"
+                                        [disabled]="!settingsForm.valid || (submitBtnDissabled | async)"
+                                        class="btn btn-secondary d-inline-block ml-3">
+                                    Save
+                                </button>
+                            </div>
+                        </formly-form>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

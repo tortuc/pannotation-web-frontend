@@ -1,0 +1,140 @@
+.typography {
+    &-heading {
+        &-level-3 {
+            font-family: "Avenir", sans-serif;
+            @extend .font-weight-600;
+            font-style: normal;
+            font-stretch: normal;
+            letter-spacing: normal;
+
+            &-web {
+                @extend .typography-heading-level-3;
+
+                font-size: 32px;
+                line-height: 0.94;
+            }
+        }
+        &-level-6 {
+            font-family: "Montserrat", sans-serif;
+            font-style: normal;
+            font-stretch: normal;
+            letter-spacing: normal;
+            font-size: 16px;
+
+            &-medium {
+                @extend .typography-heading-level-6;
+                @extend .font-weight-500;
+                line-height: 1.13;
+            }
+
+            &-bold {
+                @extend .typography-heading-level-6;
+                font-weight: bold;
+                line-height: 1.13;
+            }
+        }
+    }
+
+    &-body {
+        font-family: 'Montserrat', sans-serif;
+
+        &-level-1 {
+            @extend .typography-body;
+
+            font-size: 14px;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.43;
+            letter-spacing: normal;
+
+            &-regular {
+                @extend .typography-body-level-1;
+                @extend .font-weight-400;
+
+                line-height: 1.57;
+            }
+
+            &-medium {
+                @extend .typography-body-level-1;
+                @extend .font-weight-500;
+                line-height: 1.71;
+            }
+
+            &-semibold {
+                @extend .typography-body-level-1;
+                @extend .font-weight-600;
+            }
+        }
+    }
+
+    &-caption {
+        font-family: 'Montserrat', sans-serif;
+
+        font-style: normal;
+        font-stretch: normal;
+
+        &-level-1 {
+            @extend .typography-caption;
+
+            &-web {
+                @extend .typography-caption-level-1;
+
+                @extend .font-weight-800;
+
+                letter-spacing: 1.5px;
+                font-size: 11px;
+                line-height: normal;
+            }
+
+            &-mobile {
+                @extend .typography-caption-level-1;
+
+                letter-spacing: 2.18px;
+                font-size: 16px;
+                line-height: 1.13;
+            }
+        }
+    }
+
+    &-button {
+        @extend .font-weight-900;
+
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 2.66px;
+        &-level-1 {
+            @extend .typography-button;
+        }
+    }
+}
+
+.font {
+    &-weight {
+        &-400 {
+            font-weight: 400;
+        }
+
+        &-500 {
+            font-weight: 500;
+        }
+
+        &-600 {
+            font-weight: 600;
+        }
+
+        &-700 {
+            font-weight: 700;
+        }
+
+        &-800 {
+            font-weight: 800;
+        }
+
+        &-900 {
+            font-weight: 800;
+        }
+    }
+}

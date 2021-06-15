@@ -1,0 +1,81 @@
+@import "../../../../styles/guide/misc";
+
+.order-details {
+    padding: 45px;
+    position: relative;
+    @include block-shadow;
+
+    &__title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+    }
+
+    &__total {
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+
+        & > p {
+            margin-bottom: 0;
+        }
+
+        & > p:first-child {
+            font-family: "Montserrat", sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.33;
+            letter-spacing: normal;
+            margin-right: 15px;
+        }
+
+        & > p:last-child {
+            font-family: "Montserrat", sans-serif;
+            font-size: 45px;
+            font-weight: 800;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: center;
+        }
+    }
+
+    & > button {
+        margin-top: 30px;
+        margin-bottom: 15px;
+        padding: 0 20px;
+        height: 56px;
+        border-radius: 28.1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:disabled {
+            background-color: #999999;
+            border-color: #999999;
+        }
+    }
+
+    &__edit-btn {
+        position: absolute;
+        color: #ee4036 !important;
+        top: 50px;
+        right: 45px;
+
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 800;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 1.5px;
+    }
+}

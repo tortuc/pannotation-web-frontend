@@ -1,0 +1,58 @@
+<div [innerHTML]="(paymentHtml | async)"></div>
+<div class="checkout mt-60" *ngIf="!(purchasingStatus | async)">
+    <div class="container">
+        <h3 class="checkout__title charcoal-grey ml-0">Checkout</h3>
+        <div class="row">
+            <div class="col-lg-6 col-xl-7 mb-1 mb-md-5">
+                <div class="checkout__payment-details">
+                    <p class="checkout__subtitle brown-grey">Payment Details</p>
+                    <form [formGroup]="paymentForm">
+                        <formly-form [form]="paymentForm" [fields]="paymentFields" [model]="paymentModel"></formly-form>
+                    </form>
+                </div>
+                <div class="checkout__billing-details mt-40">
+                    <p class="checkout__subtitle brown-grey">Billing Address</p>
+                    <form [formGroup]="billingForm">
+                        <formly-form [form]="billingForm" [fields]="billingFields" [model]="billingModel"></formly-form>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-5 col-xl-4 mb-5">
+                <ng-container *ngIf="page === CHECKOUT_PAGE.Cart; then cartDetails else subscriptionDetails"></ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #cartDetails>
+    <app-order-card
+        [cart]="cart | async"
+        [checkout]="true"
+        (changeCardPurshasingData)="onCartPayment()"
+        [disabled]="(paymentForm.invalid || billingForm.invalid || (totalAmount === 0))">
+    </app-order-card>
+</ng-template>
+
+<ng-template #subscriptionDetails>
+    <div class="order-details">
+        <h5 class="order-details__title charcoal-grey mb-5">Subscription Details:</h5>
+        <p class="typography-body-level-1-regular brown-grey d-flex justify-content-between mt-3">
+            Start date:
+            <span>{{startDate | date}}</span>
+        </p>
+        <p class="typography-body-level-1-regular brown-grey d-flex justify-content-between mt-3">
+            End date:
+            <span>{{endDate | date}}</span>
+        </p>
+        <div class="order-details__total d-flex justify-content-between align-items-center">
+            <p class="charcoal-grey text-center w-100">$9.99</p>
+        </div>
+        <button class="btn btn-primary w-100" (click)="onSubscriptionPayment()" [disabled]="paymentForm.invalid || billingForm.invalid">Confirm</button>
+    </div>
+</ng-template>
+
+<app-thanks-purchasing-subscription *ngIf="!!(purchasingStatus | async) && page === CHECKOUT_PAGE.Subscription"></app-thanks-purchasing-subscription>
+<app-thanks-purchasing-cart
+    *ngIf="page === CHECKOUT_PAGE.Cart"
+    [details]="purchasingStatus | async">
+</app-thanks-purchasing-cart>

@@ -1,0 +1,20 @@
+<div class="active-subscription">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12">
+                <div class="key-note__wr">
+                    <img class="key-note" [src]="'/assets/img/ic-key-note-light-gray.svg'" alt="key note">
+                </div>
+                <div class='user-subscribed-block'>
+                    <h3 class='active-subscription-title text-center'>Monthly Subscription</h3>
+                    <p class='active-subscription-text text-center mb-2'>Subscription successfully purchased for the
+                        period</p>
+                    <p class='active-subscription-dates text-center '>{{ startDate | async }} - {{ endDate | async }}</p>
+                    <p class='active-subscription-text text-center mt-4'>To Unsubscribe or cancel your subscription please click the unsubscribe button and submit an<br />email with your request to the administrator with your email address and full name</p>
+
+                    <a id="unsubscribeBtn" href="mailto:pannotationmusic@gmail.com?subject=Unsubscribe request" class="btn btn-primary align-items-center">UNSUBSCRIBE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

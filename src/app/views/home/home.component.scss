@@ -1,0 +1,426 @@
+@import "../../../styles/base";
+@import "../../../styles/guide/responsive";
+
+:host {
+    background-color: $white;
+}
+
+.block {
+    margin-bottom: 120px;
+
+    &-heading {
+        .btn {
+            @include btn-height(58px);
+
+            &:hover {
+                color: white;
+                background-color: #393e41;
+                border-color: #393e41;
+            }
+        }
+
+        ::ng-deep {
+            .carousel-indicators li {
+                $indicator-size: 7px;
+                width: $indicator-size;
+                height: $indicator-size;
+                background-color: $white;
+                border-radius: 50%;
+                opacity: 0.3;
+                margin: 0 7px;
+
+                &.active {
+                    opacity: 1;
+                }
+            }
+
+            .carousel-control {
+                display: none;
+            }
+        }
+
+        &__title {
+            margin-bottom: 10px;
+            font-size: 54px;
+            font-weight: 900;
+            line-height: 1.26;
+            letter-spacing: 2.5px;
+            text-align: center;
+            color: $white;
+            font-family: 'Avenir', sans-serif;
+
+            @include respond-to(small) {
+                color: $charcoal-grey;
+                text-align: left;
+                font-size: 24px;
+                font-weight: 900;
+                line-height: 1.42;
+                letter-spacing: 1.11px;
+            }
+        }
+
+        &__description {
+            max-width: 760px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+            line-height: 1.56;
+            text-align: center;
+            color: $white;
+
+            @include respond-to(small) {
+                color: $charcoal-grey;
+                text-align: left;
+            }
+        }
+
+        ::ng-deep {
+            .slick-dots {
+                bottom: 20px;
+
+                & > li {
+                    margin: 0 1px;
+                    & > button {
+                        &::before {
+                            font-size: 8px;
+                            color: #ffffff;
+                        }
+                    }
+
+                    .slick-active {
+                        opacity: 0.3;
+                    }
+                }
+            }
+        }
+    }
+
+    &-featured {
+        $image-width: 203px;
+
+        .featured-card {
+            margin-left: 30px;
+
+            @include respond-to(extra-large) {
+                margin-left: 60px !important;
+            }
+
+            @include respond-to(large) {
+                margin-left: 120px !important;
+            }
+
+            @include respond-to(medium) {
+                margin: 0 281px !important;
+            }
+
+
+            outline: none;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        &-actions {
+            margin-top: 20px;
+
+            background-color: transparent;
+            border: none;
+            padding: 0 15px;
+
+            &:disabled {
+                opacity: 0.5;
+                cursor: pointer;
+            }
+        }
+
+        ::ng-deep {
+            .slick-next {
+                right: -25px;
+                z-index: 1;
+
+                &::before {
+                    content: url(/assets/img/ic-right-arrow.svg);
+                }
+            }
+
+            .slick-prev {
+                left: -25px;
+                z-index: 1;
+
+                &::before {
+                    content: url(/assets/img/ic-left-arrow.svg);
+                }
+            }
+
+            @include respond-to(small) {
+                .slick-next {
+                    right: 0;
+                }
+
+                .slick-prev {
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+.slide {
+    $slider-size: 640px;
+    $slider-size-mobile: 270px;
+    position: relative;
+
+    &-content {
+        position: relative;
+        z-index: 2;
+        height: $slider-size;
+
+        @include respond-to(small) {
+            height: auto;
+        }
+    }
+
+    &-dim {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        background: rgba(0, 0, 0, 0.25);
+    }
+
+    &-background {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 0;
+
+        @include respond-to(small) {
+            position: relative;
+            height: $slider-size-mobile;
+        }
+
+        &__img {
+            object-fit: cover;
+            object-position: center;
+            min-width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.about-block-wrapper {
+    @include respond-to(medium) {
+        margin: auto;
+    }
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+
+    .about-content__description {
+        font-size: 14px;
+        line-height: 1.57;
+        color: $charcoal-grey;
+    }
+    
+    .about-content__title-block {
+        height: 120px;
+        margin-top: auto;
+        border-radius: 5px;
+        background-color: $dark-grey;
+        color: $white;
+        position: relative;
+
+        @include respond-to(medium) {
+            margin-bottom: 50px;
+            margin-top: -30px;
+            height: 100px;
+        }
+
+        .about-content__title-img {
+            height: 58px;
+            position: absolute;
+            top: 50%;
+            transform: translate(45px, -50%);
+        }
+
+        .about-content__title {
+            border-left: 4px solid $orange-red;
+            position: relative;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+    }
+
+    &:nth-child(2n) {
+        .about-content__title-block {
+            background-color: $light-pink;
+            color: $charcoal-grey;
+        }
+
+        .about-content__description {
+            color: $brownish-grey;
+        }
+    }
+}
+
+.cards {
+
+    &-wrapper {
+        width: 100%;
+    }
+
+    &-row {
+        .card {
+            & + & {
+                margin-right: 30px;
+            }
+        }
+    }
+}
+
+.subscription-content {
+    @include respond-to(small) {
+        margin-bottom: 30px;
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 28px;
+        padding-left: 16px;
+        border-left: 4px solid $orange-red;
+        font-family: Avenir, sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 2.29px;
+        line-height: 1.67;
+        color: $charcoal-grey;
+        box-sizing: border-box;
+        text-transform: uppercase;
+    }
+
+    &__description {
+        font-size: 14px;
+        line-height: 1.57;
+        color: $brown-grey;
+        max-width: 270px;
+
+        @include respond-to(large) {
+            max-width: 100%;
+        }
+    }
+}
+
+.subscription-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 25px;
+    background-color: $dark-grey;
+    border-radius: 5px;
+
+    &__title {
+        font-size: 18px;
+        line-height: 1.33;
+        font-weight: bold;
+        color: $white;
+        text-align: center;
+    }
+
+    &__description {
+        font-size: 12px;
+        line-height: 1.5;
+        color: $brown-grey;
+        text-align: center;
+    }
+
+    &__price {
+        font-size: 45px;
+        font-weight: 800;
+        text-align: center;
+        color: $white;
+    }
+
+    &__button {
+        @include btn-height(56px, 30px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            color: white;
+            background-color: #393e41;
+            border-color: #393e41;
+        }
+    }
+}
+
+.ads {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 229px;
+    padding-left: 50px;
+
+    background-image: url("/assets/img/im-ads-banner.jpg");
+    background-image:
+        -webkit-image-set(
+            url("/assets/img/im-ads-banner.jpg") 1x,
+            url("/assets/img/im-ads-banner@2x.jpg") 2x,
+            url("/assets/img/im-ads-banner@3x.jpg") 3x,
+        );
+    background-image:
+        image-set(
+            url("/assets/img/im-ads-banner.jpg") 1x,
+            url("/assets/img/im-ads-banner@2x.jpg") 2x,
+            url("/assets/img/im-ads-banner@3x.jpg") 3x,
+        );
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    @include respond-to(small) {
+        height: 320px;
+        padding-left: 30px;
+    }
+
+    &-title {
+        width: 100%;
+        max-width: 422px;
+        font-family: Avenir, sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.58;
+        margin-bottom: 5px;
+        color: $white;
+
+        @include respond-to(small) {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+    }
+
+    &-description {
+        width: 100%;
+        max-width: 291px;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #c2c2c2;
+
+        @include respond-to(small) {
+            font-size: 16px;
+            line-height: 1.5;
+            color: $white;
+        }
+    }
+}

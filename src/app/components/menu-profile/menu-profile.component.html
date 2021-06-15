@@ -1,0 +1,43 @@
+<div class="menu-profile" dropdown [autoClose]="true" [isDisabled]="isMobile">
+    <div class="menu-profile__avatar-wr " dropdownToggle>
+        <div class="menu-profile__avatar">
+            <app-photo [photo]="avatarImage | async" [size]="{ height: 45, width: 45 }"></app-photo>
+        </div>
+    </div>
+    <ul id="dropdown-basic" *dropdownMenu class="menu-profile__dropdown dropdown-menu" role="menu"
+        aria-labelledby="button-basic">
+        <li>
+            <h6 class="menu-profile__username typography-heading-level-6-medium charcoal-grey">{{user?.firstName}} {{user?.lastName}}</h6>
+        </li>
+        <li>
+            <a class="dropdown-item typography-body-level-1-medium charcoal-grey" [routerLink]="['/subscription']">{{"Subscribe"}}</a>
+        </li>
+        <li>
+            <a
+                class="dropdown-item typography-body-level-1-medium charcoal-grey"
+                [queryParams]="{ active: ProfileTabs.Profile }"
+                [routerLink]="['/profile']">{{"Navigation.Account" | translate}}</a>
+        </li>
+        <li>
+            <a
+                class="dropdown-item typography-body-level-1-medium charcoal-grey"
+                [routerLink]="['/profile']"
+                [queryParams]="{ active: ProfileTabs.Settings }">
+                {{"Settings"}}
+            </a>
+        </li>
+        <li role="menuitem">
+            <a class="dropdown-item typography-body-level-1-medium charcoal-grey" (click)="logout()">{{"Navigation.Logout" | translate}}</a>
+        </li>
+    </ul>
+
+    <div class="user-navigation-mobile" *ngIf="isMobile">
+        <h6 class="menu-profile__username typography-heading-level-6-medium charcoal-grey">{{user?.firstName}} {{user?.lastName}}</h6>
+        <a class="dropdown-item" [routerLink]="['/subscription']">{{"Subscribe"}}</a>
+        <a class="dropdown-item" [queryParams]="{ active: ProfileTabs.Profile }" [routerLink]="['/profile']">{{"Navigation.Account" | translate}}</a>
+        <a class="dropdown-item"
+           [routerLink]="['/profile']"
+           [queryParams]="{ active: ProfileTabs.Settings }">{{"Settings"}}</a>
+        <a class="dropdown-item orangey-red" (click)="logout()">{{"Navigation.Logout" | translate}}</a>
+    </div>
+</div>

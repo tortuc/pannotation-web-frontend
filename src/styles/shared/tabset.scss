@@ -1,0 +1,69 @@
+@import "../../styles/defaults/color-constants";
+@import "../../styles/guide/responsive";
+
+tabset {
+    ::ng-deep {
+        .nav {
+            &-item {
+                &:not(:last-child) {
+                    margin-right: 20px;
+                }
+
+                @include respond-to(small) {
+                    &:not(:first-child) {
+                        margin-top: 10px;
+                        margin-right: 0;
+                    }
+                }
+
+                &.active {
+
+                    &:after {
+                        background-color: $orangey-red;
+                    }
+
+                    a {
+                        cursor: pointer;
+                        border: none;
+                    }
+
+                    caption {
+                        color: $color-almost-dark;
+                    }
+                }
+
+                & {
+                    caption {
+                        padding: 0;
+                    }
+
+                    &:after {
+                        content: '';
+                        display: block;
+                        width: 100%;
+                        height: 4px;
+                        background-color: transparent;
+                    }
+                }
+            }
+
+            &-link {
+                display: flex;
+                border: none;
+                margin-bottom: 15px;
+                padding: 0 !important;
+
+                &:hover {
+                    background-color: transparent !important;
+                }
+            }
+
+            &-tabs {
+                @include respond-to(small) {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}

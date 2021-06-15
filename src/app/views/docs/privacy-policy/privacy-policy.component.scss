@@ -1,0 +1,25 @@
+@import "../../../../styles/guide/responsive.scss";
+
+.subpage-content.text-only {
+    margin-top: 0px;
+    margin-bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    line-height: 26px;
+
+    @include respond-to(large) {
+        flex: none !important;
+        width: 90% !important;
+        max-width: 90%;
+    }
+}
+
+.subpage-content {
+    height: auto;
+    margin-bottom: 65px;
+}
+
+.page-title {
+    font-size: 32px;
+    font-weight: 500;
+}

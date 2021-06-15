@@ -1,0 +1,16 @@
+<div class="authentication-wrapper w-100 h-100">
+    <div class="authentication-container" [class.wider]="!(failed | async)">
+        <div content class="w-100">
+            <div class="row h-100">
+                <div class="message-with-note col-lg-12 h-100" *ngIf="!(failed | async)">
+                    <div class="key-note__wr">
+                        <img class="key-note" [src]="icKeyNote" alt="key note">
+                    </div>
+                    <div class="container__text text-center m-auto" *ngIf="!(failed | async)">
+                        {{ 'Verification.Success' | translate }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

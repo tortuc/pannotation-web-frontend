@@ -1,0 +1,46 @@
+<div class="profile" *ngIf="(active | async) as activeTab">
+    <div class="container">
+        <tabset>
+            <tab [active]="activeTab === ProfileTabs.Profile">
+                <ng-template tabHeading>
+                    <caption class="typography-caption-level-1-web brownish-grey text-uppercase">
+                        {{ 'Profile.TabSet.Profile' | translate }}
+                    </caption>
+                </ng-template>
+                <app-profile-info></app-profile-info>
+            </tab>
+            <tab [active]="activeTab === ProfileTabs.Orders">
+                <ng-template tabHeading>
+                    <caption class="typography-caption-level-1-web brownish-grey text-uppercase">
+                        {{ 'Profile.TabSet.Orders' | translate }}
+                    </caption>
+                </ng-template>
+                <app-profile-orders></app-profile-orders>
+            </tab>
+            <tab [active]="activeTab === ProfileTabs.Subscription" class="subscription-tab">
+                <ng-template tabHeading>
+                    <caption class="typography-caption-level-1-web brownish-grey text-uppercase">
+                        {{ 'Profile.TabSet.Subscription' | translate }}
+                    </caption>
+                </ng-template>
+                <app-profile-subscription></app-profile-subscription>
+            </tab>
+            <tab [active]="activeTab === ProfileTabs.Settings">
+                <ng-template tabHeading>
+                    <caption class="typography-caption-level-1-web brownish-grey text-uppercase">
+                        {{ 'Profile.TabSet.Settings' | translate }}
+                    </caption>
+                </ng-template>
+                <app-profile-settings></app-profile-settings>
+            </tab>
+            <tab [active]="activeTab === ProfileTabs.SellSheet">
+                <ng-template tabHeading>
+                    <caption class="typography-caption-level-1-web brownish-grey text-uppercase">
+                        {{ 'Profile.TabSet.SellSheets' | translate }}
+                    </caption>
+                </ng-template>
+                <app-profile-sellsheets></app-profile-sellsheets>
+            </tab>
+        </tabset>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p class="found-message text-center">
+                {{ (list | async).length > 0 ? 'We found ' : (isLoadingData | async)? '' : 'Nothing found'}}
+                <strong>{{ ((list | async).length > 0) ? (searchedTypesResult | async | searchResultsTypes) : '' }}</strong>
+                {{ (filter | async)?.search ? 'by ' : '' }}
+                <strong>{{ (filter | async)?.search ? (filter | async)?.search : '' }}</strong>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="filtersForm" class="w-100">
+                <formly-form class="filters-form d-flex flex-row w-100 justify-content-md-end justify-content-center"
+                             [form]="filtersForm"
+                             [fields]="filtersFormConfig"
+                             [model]="model">
+                </formly-form>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-6 col-12 d-flex flex-row justify-content-center" *ngFor="let card of (list | async)">
+            <app-search-item [songsheet]="card" class="songsheet-card"></app-search-item>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <button class="btn btn-secondary"
+                    (click)="handleLoadMore()"
+                    [hidden]="loadMoreDisabled | async">Load More
+            </button>
+        </div>
+    </div>
+</div>

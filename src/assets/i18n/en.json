@@ -1,0 +1,303 @@
+{
+    "Header": {
+        "Sign in": "Sign in",
+        "Sign up": "Sign up",
+        "Sign out": "Sign out",
+        "Search": "Search"
+    },
+    "Navigation": {
+        "Home": "Home",
+        "Account": "Account",
+        "Profile": "Profile",
+        "Logout": "Log out",
+        "Cards": "My Cards",
+        "ChangePassword": "Change Password",
+        "AddProduct": "Create a product/service",
+        "SongsheetsList": "My Music Scores/services",
+        "MyEarnings": "My earnings",
+        "Language": {
+            "Placeholder": "Language",
+            "en": "en",
+            "ru": "ru"
+        }
+    },
+    "SignIn": {
+        "Create an account": "Sign up",
+        "Header": "Authorization",
+        "FormHeader": "Sign In",
+        "Form": {
+            "EmailLabel": "Email",
+            "EmailPlaceholder": "Enter your email",
+            "PasswordLabel": "Password"
+        },
+        "SignInBtn": "Sign in",
+        "Restore password": "Forgot password",
+        "VerificationNeeded": "You need to verify your email address, the verification link was sent to specified email.\nIt will be valid for next 72 hours. If you won’t verify your account until then,\nyou will have to Sign Up again."
+    },
+    "Cards": {
+        "Title": "Cards",
+        "Header": "Manage your payment cards",
+        "AddNew": "Add new card"
+    },
+    "ChangePassword": {
+        "Title": "Change password",
+        "Header": "Fill all required fields",
+        "CreateNew": "Create New Password",
+        "Password": "Password should contain at least one letter, one digit and one capital letter",
+        "Form": {
+            "EmailLabel": "Email address",
+            "EmailPlaceholder": "address@example.com",
+            "PasswordLabel": "Password"
+        },
+        "SignInBtn": "Sign in",
+        "Restore password": "Restore password",
+        "VerificationNeeded": "You need to verify your email address, the verification link was sent to specified email.\nIt will be valid for next 72 hours. If you won’t verify your account until then,\nyou will have to Sign Up again."
+    },
+    "Validation": {
+        "Common": {
+            "Required": "Field is required",
+            "Email": "Email address is not in valid format",
+            "InvalidValue": "Invalid value",
+            "MinLength": "This value should be no shorter than {{value}} characters",
+            "MaxLength": "This value should be no longer than {{value}} characters",
+            "Min": "This value should be less than {{value}}",
+            "Max": "This value should be more than {{value}}",
+            "MustBeNumber": "This value should be number",
+            "MustBeNumberAndMinLength": "This value should be number and not shorter than {{value}} characters",
+            "Password": "Password should contain at least one digit and one capital letter",
+            "Phone": "Phone number is invalid",
+            "PassLength": "Password must be from 6 to 50 symbols",
+            "NameLength": "This value must be from 1 to 50 symbols",
+            "EmailLength": "Email address is not in valid format",
+            "DescriptionLength": "This value must be from 1 to 1000 symbols",
+            "NotSpaces": "Field is required",
+            "PasswordsDontMatch": "Passwords don't match",
+            "LengthBetween": "The value must be from {{min}} to {{max}} symbols",
+            "OnlyDigits": "The field must consist only of digits",
+            "NameRequired": "Name is required",
+            "SurnameRequired": "Surname is required"
+        },
+        "WrongImageFormat": "Incorrect image format. Allowed formats is jpg, png",
+        "MinImageSize": "Minimum size of the image should be {{value}}x{{value}}",
+        "MaxImageFileSize": "File is too large. Max file size is {{value}} Mb"
+    },
+    "SongsheetsList": {
+        "Title": "Music Scores list",
+        "Search": "Search...",
+        "Blocked": "Blocked",
+        "LastUpdate": "Last update",
+        "ProductPhoto": "Product photo",
+        "SelectType": "Select ordering type",
+        "Edit": "Edit",
+        "Ascending": "Oldest to newest",
+        "Descending": "Newest to oldest",
+        "MinPrice": "Min price",
+        "MaxPrice": "Max price",
+        "NoMatch": "Your search '{{value}}' did not match any music scores.",
+        "AdditionalFilters": "AdditionalFilters",
+        "Gender": "Gender",
+        "Kitchen": "Kitchen",
+        "Category": "Category",
+        "Genders": {
+            "male": "Male",
+            "female": "Female"
+        },
+        "Kitchens": {
+            "italian": "Italian",
+            "ukrainian": "Ukrainian",
+            "international": "International",
+            "chinese": "Chinese"
+        },
+        "Categories": {
+            "dinner": "Dinner",
+            "lunch": "Lunch",
+            "breakfast": "Breakfast",
+            "chinese": "Chinese"
+        }
+    },
+    "Category": {
+        "Breakfast": "Breakfast",
+        "Lunch": "Lunch",
+        "Dinner": "Dinner"
+    },
+    "Gender": {
+        "Male": "Male",
+        "Female": "Female"
+    },
+    "Kitchen": {
+        "Italian": "Italian",
+        "Ukrainian": "Ukrainian",
+        "International": "International",
+        "Chinese": "Chinese"
+    },
+    "Comments": {
+        "SuccessMsg": "Your comment was added successfully",
+        "Form": {
+            "DescriptionLabel": "Leave comment",
+            "DescriptionPlaceholder": "Type here",
+            "Save": "Save",
+            "LeaveComment": "Leave Comment",
+            "CancelBtn": "Cancel"
+        }
+    },
+    "Card": {
+        "Title": "Cards",
+        "Header": "Manage your payment cards",
+        "AddNew": "Add new card",
+        "Expiry": "Expiry date:",
+        "Form": {
+            "Title": "Add card info",
+            "EditTitle": "Edit a payment method",
+            "Number": "Card Number",
+            "Month": "MM",
+            "Year": "YYYY",
+            "CVV": "CVV",
+            "ExpirationError": "Expiration date not in valid format",
+            "PayWithNewBtn": "Add new card",
+            "CancelBtn": "Cancel",
+            "SaveBtn": "Save",
+            "SaveCheck": "Save card as default"
+        }
+    },
+    "Checkout": {
+        "Header": "Checkout",
+        "PaymentOptions": "Payment Options"
+    },
+    "FillProfile": {
+        "Title": "Fill required fields",
+        "Proceed": "Register"
+    },
+    "SignUp": {
+        "Title": "Create your account",
+        "Register": "Sign Up",
+        "Facebook": "Facebook",
+        "Google": "Google",
+        "HaveAccount": "Already have an account",
+        "SignInHere": "Sign in here",
+        "VerifyText": "Verification link was sent to your email",
+        "CheckInboxText": "Please check your Inbox",
+        "ResendBtn": "Good!",
+        "AlreadyRegistered": "User with such email is already exists"
+    },
+    "NotFound": {
+        "Header": "Page Not Found",
+        "BackBtn": "Back",
+        "Text": "Sorry, but the page you are looking for has not been found. Try checking the URL for error, then hit the refresh button on your browser or try found something else in our app."
+    },
+    "Payments": {
+        "Successful": "The payment was successful",
+        "ReturnBtn": "Return"
+    },
+    "Password": {
+        "Successful": "Your password updated successfully"
+    },
+    "Users": {
+        "Successful": "Your data is successfully saved",
+        "Title": "Profile",
+        "DeleteAccountBtn": "Delete my account",
+        "DeleteAccountTitle": "Delete account",
+        "DeleteAccountMessage": "Are you sure you want to delete your account?",
+        "DeleteAccountWithBalanceMessage": "You have {{balance}} on your balance. You have {{hold}} awaiting withdrawal. Are you sure you want to delete your account?",
+        "NotVerifiedMsg": "Your email is not verified",
+        "VerifyBtn": "Verify",
+        "VerifyEmailMsg": "Mail with verification link was sent"
+    },
+    "Songsheets": {
+        "CreateProductHeader": "Create a product/service",
+        "EditProductHeader": "Edit a product/service",
+        "ProductHeader": "Product/Service",
+        "Form": {
+            "SaveBtn": "Save",
+            "SaveChangesBtn": "Save changes",
+            "CancelBtn": "Cancel",
+            "AddPhotoBtn": "Add photo",
+            "SuccessCreateMsg": "Product was created",
+            "SuccessEditMsg": "Product was edited",
+            "TitleLabel": "Title",
+            "TitlePlaceholder": "Add title",
+            "DescriptionLabel": "Description",
+            "DescriptionPlaceholder": "Add description",
+            "CategoryLabel": "Category",
+            "GenderLabel": "Gender",
+            "KitchenLabel": "Kitchen",
+            "PriceLabel": "Price",
+            "RatingLabel": "Rating",
+            "PricePlaceholder": "Enter price"
+        },
+        "BuyBtn": "Buy",
+        "SandMessageBtn": "Send a message",
+        "EditBtn": "Edit",
+        "DeleteBtn": "Delete",
+        "Comments": " Comments",
+        "LoadMore": "Load more comments",
+        "ProviderLabel": "Provider",
+        "ProductPhotoAlt": "Product photo",
+        "ProviderAvatarAlt": "Provider avatar",
+        "SuccessDeleteMsg": "Product was deleted",
+        "ConfirmationDeleteTitle": "Delete product",
+        "ConfirmationDeleteMsg": "Are you sure you want to delete this product?"
+    },
+    "Modals": {
+        "DeclineBtn": "Decline",
+        "AcceptBtn": "Accept"
+    },
+    "Earnings": {
+        "Title": "My earnings",
+        "AmountLabel": "Amount",
+        "HoldLabel": "Hold",
+        "WithdrawBtn": "Withdraw",
+        "ApplyBtn": "Apply",
+        "CancelBtn": "Cancel",
+        "AmountPlaceholder": "Amount for withdraw",
+        "BalanceLabel": "Balance",
+        "WaitingConfirmationLabel": "Waiting for confirmation"
+    },
+    "TermsAndConditions": {
+        "Title": "Terms and Conditions"
+    },
+    "Footer": {
+        "TermsOfUse": "Terms and Conditions",
+        "Copyright": "Copyright",
+        "Company": "Pannotation",
+        "PrivacyPolicy": "Privacy Policy",
+        "DataProcessing": "Data Processing"
+    },
+    "PrivacyPolicy": {
+        "Title": "Privacy Policy"
+    },
+    "DataProcessing": {
+        "Title": "Data Processing Agreement"
+    },
+    "Verification": {
+        "Title": "Email verification",
+        "Success": "Email was successfully verified!",
+        "Failed": "The verification link is invalid."
+    },
+    "Restore": {
+        "Title": "Password Restore",
+        "CreateNew": "Create new password",
+        "Expired": "Restoration link has expired."
+    },
+    "Reset": {
+        "Title": "Forgot password",
+        "SendBtn": "Send",
+        "Success": "The restoration link was send to your email and will be valid for 72 hours. If you won't restore password until then, you will have to get another restoration link"
+    },
+    "No internet connection": "Something went wrong. Please check your internet connection and try again.",
+    "Profile": {
+        "TabSet": {
+            "Profile": "Profile",
+            "Orders": "Orders",
+            "Subscription": "Subscription",
+            "Settings": "Settings",
+            "SellSheets": "Sell Scores"
+        },
+        "Avatar": {
+            "Delete": "Delete photo",
+            "Upload": "Upload photo"
+        },
+        "Form": {
+            "Title": "Profile details"
+        }
+    }
+}

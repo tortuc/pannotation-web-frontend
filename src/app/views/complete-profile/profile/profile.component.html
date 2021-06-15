@@ -1,0 +1,41 @@
+<div class="authentication-wrapper w-100 h-100 overflow-auto">
+        <div class="authentication-container">
+            <div content class="w-100">
+                <div class="row h-100">
+                    <div class="col-lg-12">
+                        <div toolbar>
+                            <div class="header-label text-center">Step {{ fillingStep | async }} of 2</div>
+                            <h2 class="h2 mt-2 mb-4 font-bold text-center">Complete Profile</h2>
+                            <div *ngIf="checkFillingStep(1)">
+                                <app-photo [photo]="photo | async"></app-photo>
+                                <div class="photo-buttons-wrapper">
+                                    <div class="upload-btn-wrapper">
+                                        <input #imageInput (change)="changePhotoHandler($event.target.files[0])" class="text-center image-upload-input" type="file" name="pic" accept="image/jpeg,image/png,image/jpg" />
+                                        <div class="photo-upload-btn text-center">Upload photo</div>
+                                    </div>
+                                    <button class="delete-photo-btn text-center p-0" (click)="deletePhotoHandler()" [class.d-none]="photo.value == undefined">Delete photo</button>
+                                </div>
+                                <span class="error-message text-center">{{ photoErrorMessage | async }}</span>
+                                <form [formGroup]="formStep1" (ngSubmit)="submitFirstStep(model)">
+                                    <formly-form [form]="formStep1" [fields]="fieldsStep1" [model]="model">
+                                        <button type="submit" [disabled]="!formStep1.valid" class="btn btn-primary block full-width m-b">
+                                            Continue
+                                        </button>
+                                    </formly-form>
+                                </form>
+                            </div>
+                            <div *ngIf="checkFillingStep(2)">
+                                <form [formGroup]="formStep2" (ngSubmit)="submitSecondStep(model)">
+                                    <formly-form [form]="formStep2" [fields]="fieldsStep2" [model]="model">
+                                        <button type="submit" [disabled]="!formStep2.valid" class="btn btn-primary block full-width m-b submit-step-2">
+                                            Complete Registration
+                                        </button>
+                                    </formly-form>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,58 @@
+@import '../../../../styles/base';
+@import '../../../../styles/guide/responsive.scss';
+
+.header-label {
+    font-size: 14px;
+    color: $light-grey;
+    font-weight: 500;
+}
+
+.photo-buttons-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.upload-btn-wrapper {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.image-upload-input {
+    width: 100px;
+    display: block;
+    margin: 10px auto 10px auto;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.photo-upload-btn {
+    width: 100px;
+    margin: 10px auto 10px auto;
+    color: $charcoal-grey;
+    font-size: 14px;
+}
+
+.delete-photo-btn {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100px;
+    color: $orange-red;
+    font-size: 14px;
+    background-color: transparent;
+    border: none;
+}
+
+.error-message {
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+    margin: -10px auto 15px auto;
+    display: block;
+}
+
+.submit-step-2 {
+    @include respond-to(small) {
+        padding-top: 3px;
+    }
+}

@@ -1,0 +1,31 @@
+<div class="cart mt-60">
+    <div class="container">
+        <h3 class="cart__title charcoal-grey ml-2">Cart</h3>
+        <div class="row mt-60 d-flex justify-content-between">
+            <div class="col-lg-6 col-xl-7">
+                <div class="cart__item" *ngFor="let item of (cart | async)?.items; trackBy: trackById">
+                    <div class="cart__item-wr">
+                        <div class="cart__item-image">
+                            <img [src]="item.image.compactPath" alt="Songsheet image">
+                        </div>
+                        <div class="cart__item-description mt-3 mt-lg-0">
+                            <div>
+                                <p class="typography-body-level-1-medium charcoal-grey text-ellipsis">{{item.artistName}}</p>
+                                <p class="cart__item-genres very-light-pink text-uppercase">{{item.getInstruments}}</p>
+                                <p class="cart__item-genres very-light-pink text-uppercase">{{item.getGenres}}</p>
+                                <p class="typography-heading-level-6-bold charcoal-grey text-ellipsis">{{item.name}}</p>
+                            </div>
+                            <p class="cart__item-price mt-4 mt-lg-0">${{item.price}}</p>
+                        </div>
+                    </div>
+                    <div class="delimiter ml-0 mr-0"></div>
+                    <button (click)="deleteItem(item.id)" class="cart__item-delete"></button>
+                </div>
+                <a class="btn btn-secondary cart__btn-back" [routerLink]="['/music-scores']">Back to shopping</a>
+            </div>
+            <div class="col-lg-5 col-xl-4 mb-5">
+                <app-order-card [cart]="cart | async"></app-order-card>
+            </div>
+        </div>
+    </div>
+</div>

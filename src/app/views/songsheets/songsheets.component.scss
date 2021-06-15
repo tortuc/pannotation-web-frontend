@@ -1,0 +1,60 @@
+@import "../../../styles/base";
+@import "../../../styles/guide/responsive";
+
+:host {
+    display: flex;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    flex: 1;
+
+    ::ng-deep {
+        .filter-field {
+            width: 180px;
+            margin-left: 30px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            .dropdown-link {
+                &:hover {
+                    color: #ee4036 !important;
+                }
+            }
+
+            @include respond-to(medium) {
+                width: 50%;
+                margin-left: 15px;
+            }
+
+            &-wide {
+                width: 250px;
+
+                ::ng-deep {
+                    .dropdown-menu {
+
+                        @include respond-to(small) {
+                            left: 0 !important;
+                            right: auto !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+p.found-message {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: $brown-grey;
+
+    strong {
+        color: $charcoal-grey;
+    }
+}
+
+.songsheet-card {
+    margin-bottom: 30px;
+}

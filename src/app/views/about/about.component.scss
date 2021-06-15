@@ -1,0 +1,42 @@
+.about {
+    margin-top: 60px;
+
+    .page-block{
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 22px;
+        margin-bottom: 60px;
+        color: #626262;
+
+        h4{
+            font-weight: 500;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        ul{
+            margin-bottom: 0px;
+
+            li{
+                color: #D8D8D8;
+            }
+
+            li span{
+                color: #626262;
+            }
+        }
+
+        .m-t-20{
+            margin-top: 20px;
+        }
+    }
+
+    .h-base{
+        margin-bottom: 20px;
+        color: #393E41;
+    }
+
+    .h2{
+        margin-bottom: 40px;
+    }
+}

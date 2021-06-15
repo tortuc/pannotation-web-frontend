@@ -1,0 +1,98 @@
+<div class="header container-fluid">
+    <div class="row menu-header white-bg" [class.hidden]="isSearchActive | async">
+        <nav class="navbar navbar-expand-lg navbar-static-top" role="navigation">
+            <div class="nav-menu h-100 d-flex flex-row w-100" [ngClass]="{
+                        'justify-content-between': !(isMobile | async),
+                        'justify-content-center': isMobile | async}">
+                <button #menuBtn class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbar"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation" (click)="isOpen()">
+                    <i class="fa" [ngClass]="{'fa-bars': !(isOpenMenu | async),'fa-times': (isOpenMenu | async)}"></i>
+                </button>
+                <div class="logo" *ngIf="!(isOpenMenu | async)" [routerLink]="['/']">
+                    <img class="logo-img" [src]="imgLogo" alt="logo">
+                </div>
+
+                <div class="navbar-collapse collapse justify-content-between" id="navbar" [class.show]="false"
+                     [ngClass]="{'padded': isOpenMenu | async}" #navBar>
+                    <div class="hw" [ngClass]="{'is-opened': (isOpenMenu | async) && (isMobile | async)}">
+                        <div class="d-flex flex-lg-row flex-column">
+                            <a class="nav-link" [routerLink]="['/subscription']" (click)="closeMenu()">Subscribe</a>
+                            <a class="nav-link" [routerLink]="['/music-scores']" (click)="closeMenu()">Library</a>
+                            <a class="nav-link nav-link--hover" [routerLink]="['/contact-us']" (click)="closeMenu()">Contact us</a>
+                            <a class="nav-link nav-link--hover" [routerLink]="['/about']" (click)="closeMenu()">About</a>
+                            <div class="cart-link-wrapper">
+                                <a class="nav-link cart-link" [routerLink]="['/cart']" [class.hidden]="!(isLoggedIn | async)"
+                                   *ngIf="(isMobile | async)">
+                                    Cart
+                                    <span class="cart-badge--mobile" *ngIf="(cart | async)?.showFilledCart">
+                                        {{ (cart | async)?.items.length }}
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div *ngIf="!(isMobile | async)" class="spacer"></div>
+                        <div [class.hidden]="isLoggedIn | async" class="d-flex flex-lg-row flex-column sign-menu">
+                            <a class="nav-link nav-link--charcoal" [routerLink]="['/sign-in']"
+                               (click)="closeMenu()">Sign in</a>
+                            <a class="nav-link btn-nav"
+                               [class.red]="isMobile | async"
+                               [routerLink]="['/sign-up']" (click)="closeMenu()">Sign up</a>
+                        </div>
+                        <div class="btn-group cart-link-wrapper cart-link-wrapper--desktop" [class.hidden]="!(isLoggedIn | async)" dropdown
+                             [autoClose]="true" [isDisabled]="(isMobile | async) || !(cart | async)" *ngIf="!(isMobile | async)"
+                             triggers="hover" (isOpenChange)="cartDropdownChange()" #dp="bs-dropdown" (mouseleave)="dp.hide()">
+                            <a class="nav-link flex-row cart-link" [routerLink]="['/cart']" dropdownToggle id="button-cart"
+                               aria-labelledby="dropdown-cart">
+                                <span class="cart-badge" *ngIf="(cart | async)?.showFilledCart"></span>
+                                <img src="/assets/img/ic-cart-gray.svg" alt="Cart icon">
+                                Cart
+                            </a>
+                            <ul id="dropdown-cart" class="dropdown-menu dropdown-cart" *dropdownMenu role="menu"
+                                aria-labelledby="button-cart">
+                                <li role="menuitem" class="cart-item">
+                                    <h6 class="typography-heading-level-6-bold">
+                                        {{(cart | async)?.items.length}} {{(cart | async)?.itemsTypo}} in your cart
+                                    </h6>
+                                    <ng-container *ngTemplateOutlet="cartDropdownItem; context: (cart | async)"></ng-container>
+                                </li>
+                            </ul>
+                        </div>
+                        <app-menu-profile *ngIf="isLoggedIn | async"
+                                          [isMobile]="isMobile | async"
+                                          (navClicked)="onNavClicked($event)"
+                                          [user]="currentUser | async"></app-menu-profile>
+                    </div>
+                </div>
+                <div class="btn-search" (click)="onSearchClick($event)"
+                     *ngIf="!(isMobile | async)">Search
+                </div>
+                <button class="ic-search" (click)="onSearchClick($event)" [class.hidden]="(isOpenMenu | async)"
+                        *ngIf="(isMobile | async)">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </nav>
+    </div>
+    <div class="row d-flex flex-row justify-content-between flex-nowrap" [class.hidden]="!(isSearchActive | async)">
+        <form class="d-flex spacer align-items-center" [formGroup]="searchForm">
+            <input type="text" #searchInput
+                   class="search-input w-100 spa"
+                   [formControlName]="'search'"
+                   placeholder="Search Library">
+        </form>
+        <div class="btn-cancel" (click)="onSearchCancelClick($event)">
+            <i class="fa fa-close ic-close"></i>
+        </div>
+    </div>
+</div>
+
+<ng-template #cartDropdownItem let-itemsAmount="totalAmount" let-isItems="showFilledCart">
+    <p *ngIf="isItems" class="typography-body-level-1-medium little-grey">Tap on Cart to see details</p>
+    <p *ngIf="!isItems" class="typography-body-level-1-medium little-grey">Go ahead and add something!</p>
+    <a *ngIf="!isItems" class="typography-body-level-1-medium orangey-red mt-3" [routerLink]="['/music-scores']">Continue shopping</a>
+</ng-template>

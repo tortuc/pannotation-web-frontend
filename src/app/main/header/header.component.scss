@@ -1,0 +1,341 @@
+@import "../../../styles/base";
+@import "../../../styles/guide/responsive";
+
+$header-height: 110px;
+$header-height-mobile: 80px;
+$header-padding-left: 60px;
+
+:host {
+    display: block;
+    position: relative;
+    width: 100%;
+    z-index: 100;
+    background-color: #ffffff;
+
+    &.locked {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        overflow-y: scroll;
+    }
+}
+
+%btn-big {
+    @extend %flex-centered;
+    width: 100%;
+    max-width: 200px;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 2.66px;
+    text-align: center;
+    color: $white;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: background-color ease-in 300ms;
+}
+
+%search-input-style {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.13;
+
+    @include respond-to(large) {
+        line-height: 1.43;
+        color: #999999;
+    }
+}
+
+.logo {
+    @extend %flex-centered;
+    margin-right: 45px;
+    margin-left: $header-padding-left;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+
+    @include respond-to(large) {
+        max-height: $header-height-mobile;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &-img {
+        width: 110px;
+        height: 89px;
+
+        @include respond-to(large) {
+            width: 77px;
+            height: 62px;
+            margin: 0;
+        }
+    }
+}
+
+.header {
+    height: $header-height;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(59, 59, 59, 0.3);
+
+    .row {
+        height: 100%;
+    }
+
+    @include respond-to(large) {
+        height: $header-height-mobile;
+    }
+
+    .cart {
+        &-link-wrapper {
+            align-self: center;
+
+            .dropdown-cart {
+                border-radius: 8px;
+                box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+                background-color: $white;
+                width: 259px;
+
+                .cart-item {
+                    padding: 20px;
+                }
+            }
+
+            &--desktop {
+                height: 74px;
+            }
+        }
+
+        &-link {
+            display: flex;
+            position: relative;
+
+            & > img {
+                margin-right: 10px;
+            }
+        }
+
+        &-badge {
+            width: 10px;
+            height: 10px;
+            background-color: $orange-red;
+            border-radius: 50%;
+            position: absolute;
+            left: 22px;
+            bottom: 26px;
+
+            &--mobile {
+                padding: 0 5px;
+                height: 15px;
+                border-radius: 3px;
+                background-color: $orange-red;
+                position: absolute;
+                right: -16px;
+                top: -3px;
+
+                font-size: 12px;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: $white;
+            }
+        }
+    }
+}
+
+.search {
+    &-input {
+        @extend %search-input-style;
+        display: flex;
+        flex-direction: row;
+        color: $charcoal-grey;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 0;
+
+        margin-left: $header-padding-left;
+
+        &::placeholder {
+            @extend %search-input-style;
+            color: $brown-grey;
+        }
+
+        @include respond-to(large) {
+            margin-left: 25px;
+        }
+    }
+
+    &-bar {
+        height: 100%;
+    }
+}
+
+.nav-link {
+    @extend %flex-centered;
+    $btn-padding: 15px;
+    height: 100%;
+    padding-left: $btn-padding;
+    padding-right: $btn-padding;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: $charcoal-grey;
+    text-transform: uppercase;
+    cursor: pointer;
+
+
+    &:last-child, &:nth-last-child(2) {
+        color: $brownish-grey;
+    }
+
+    &.red {
+        color: $orange-red;
+    }
+
+    &--hover {
+        color: #393e41 !important;
+        &:hover {
+            color: $orange-red !important;
+        }
+    }
+
+    @include respond-to(large) {
+        //max-height: $header-height-mobile;
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 14px;
+        line-height: 1.13;
+        letter-spacing: 2.18px;
+    }
+
+    @include respond-to(small) {
+        align-self: center;
+    }
+
+    i {
+        margin-right: 10px;
+        font-size: 16px;
+    }
+}
+
+.btn {
+
+    &-search {
+        @extend %btn-big;
+        background-color: $orange-red;
+        height: 100%;
+        text-transform: uppercase;
+
+        &:hover {
+            background-color: $charcoal-grey;
+        }
+    }
+
+    &-cancel {
+        @extend %btn-big;
+        background-color: $charcoal-grey;
+
+        @include respond-to(large) {
+            max-width: 24px;
+            margin-left: 20px;
+            margin-right: 25px;
+            background-color: transparent;
+
+            .ic-close {
+                color: $charcoal-grey;
+            }
+        }
+    }
+}
+
+.ic-close {
+    font-size: 24px;
+    color: $white;
+}
+
+.hw {
+    $mobile-height: calc(100vh - #{$header-height-mobile});
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-basis: auto;
+    justify-content: space-between;
+    background: $white;
+    box-sizing: border-box;
+
+    &.is-opened {
+        -webkit-overflow-scrolling: touch;
+        height: $mobile-height;
+
+        @include respond-to(large) {
+            padding-top: 15px;
+            margin-top: -1px;
+        }
+    }
+
+    @include respond-to(large) {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    @include respond-to(small) {
+        min-height: $mobile-height;
+    }
+
+    .sign-menu {
+        @include respond-to(large) {
+            justify-self: flex-end;
+            margin-bottom: 100px;
+            margin-top: auto;
+        }
+    }
+}
+
+
+.navbar-toggler, .ic-search {
+    height: 100%;
+    padding-left: 26px;
+    padding-right: 26px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    color: $charcoal-grey;
+    margin: 0;
+
+    i {
+        font-size: 24px;
+    }
+}
+
+.ic-search {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-height: $header-height-mobile;
+}
+
+
+.navbar-toggler {
+
+    @include respond-to(large) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-height: $header-height-mobile;
+    }
+}
+
+.navbar-collapse{
+    &.padded {
+        padding-top: $header-height-mobile;
+    }
+}

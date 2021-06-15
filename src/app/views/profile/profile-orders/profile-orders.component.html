@@ -1,0 +1,63 @@
+<div class="profile-orders">
+    <div class="scrollable">
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="typography-button-level-1 brown-grey text-uppercase">
+                    Music Score
+                </th>
+                <th class="typography-button-level-1 brown-grey text-uppercase">
+                    Artist name
+                </th>
+                <th class="typography-button-level-1 brown-grey text-uppercase">
+                    Arrangers
+                </th>
+                <th class="typography-button-level-1 brown-grey text-uppercase">
+                    Date
+                </th>
+                <th class="typography-button-level-1 brown-grey text-uppercase">
+                    Price
+                </th>
+                <th class="text-right d-none d-md-table-cell"></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders | async">
+                    <td>
+                        <p class="typography-heading-level-6 charcoal-grey font-bold d-none d-md-block">{{order.name}}</p>
+                        <button (click)="onSaveClick(order.file.path)" class="typography-heading-level-6 font-bold profile-orders__download-first d-flex d-md-none">
+                            {{order.name}}
+                        </button>
+                    </td>
+                    <td class="typography-body-level-1-medium charcoal-grey">
+                        {{order.artistName}}
+                    </td>
+                    <td class="typography-body-level-1-medium charcoal-grey">
+                        {{order.arranger}}
+                    </td>
+                    <td class="typography-body-level-1-medium charcoal-grey">
+                        {{order.date | date:'dd/MM/yyyy'}}
+                    </td>
+                    <td class="typography-body-level-1-medium charcoal-grey">
+                        ${{order.price}}
+                    </td>
+                    <td class="typography-body-level-1-medium charcoal-grey d-none d-md-table-cell">
+                        <p (click)="onSaveClick(order.file.path)" class="profile-orders__download">
+                            Download
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination">
+        <pagination
+            [totalItems]="ordersTable.lengthChanges | async"
+            [itemsPerPage]="limit"
+            [(ngModel)]="pageIndex"
+            (pageChanged)="urlFilter.setPage($event)"
+            [maxSize]="10">
+        </pagination>
+    </div>
+</div>
+

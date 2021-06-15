@@ -1,0 +1,33 @@
+@import "../../../styles/guide/misc";
+
+:host {
+    @include height-100;
+}
+
+.profile {
+    margin-top: 60px;
+    height: 100%;
+    @include height-100;
+
+    & > *,
+
+    tabset {
+        @include height-100;
+    }
+
+    tabset {
+        ::ng-deep {
+            .tab-content {
+                @include height-100;
+
+                .tab-pane.active {
+                    @include height-100;
+                }
+            }
+        }
+    }
+
+    .subscription-tab {
+        min-height: 330px;
+    }
+}

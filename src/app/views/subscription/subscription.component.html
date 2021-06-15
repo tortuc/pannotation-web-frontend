@@ -1,0 +1,74 @@
+<ng-template #subscribeTemplate let-inverted="inverted" let-title="title" let-description="description"
+             let-price="price" let-btnLabel="btnLabel" let-btnAction="btnAction">
+    <div class="col-12 col-lg-8 col-xl-6">
+        <div class="subscribe-card" [class.inverted]="inverted">
+            <div class="key-note__wr">
+                <img class="key-note" [src]="icKeyNote" alt="key note">
+            </div>
+            <p class="subscribe-card__title">{{title}}</p>
+            <p class="subscribe-card__description">{{description}}</p>
+            <p class="subscribe-card__price">${{price}}</p>
+            <div class="subscribe-card__agreement-block">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox"
+                           class="custom-control-input"
+                           (change)="subscriptionCheckboxChange()"
+                           [value]="(subscriptionCheckbox | async)"
+                           id="customControlAutosizing">
+                    <label class="custom-control-label" for="customControlAutosizing">
+                    </label>
+                    <p class="brown-grey">I agree to the <a routerLink="/subscription-agreement">Subscription Agreement</a> and the <a
+                        routerLink="/upload-agreement">Upload Agreement</a></p>
+                </div>
+                <button class="btn btn-primary" (click)="handleOption()" [disabled]="!(subscriptionCheckbox | async)">{{btnLabel}}</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #faqTemplate let-question="question">
+    <div class="faq-elem">
+        <div class="faq-elem__head d-flex flex-row" (click)="question.toggle()">
+            <div class="faq-elem__button">
+                <button type="button" class="btn btn-icon" aria-label="Left Align"
+                        [attr.aria-expanded]="!(question.isCollapsed | async)" aria-controls="collapseBasic">
+                    <span class="fa fa-lg fa-plus" *ngIf="(question.isCollapsed | async)" aria-hidden="true"></span>
+                    <span class="fa fa-lg fa-minus" *ngIf="!(question.isCollapsed | async)" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="faq-elem__title">{{question.title}}</div>
+        </div>
+        <div id="collapseBasic" [collapse]="(question.isCollapsed | async)">
+            <div class="faq-elem__text">{{question.text}}</div>
+        </div>
+    </div>
+</ng-template>
+
+<div class="container" *ngIf="!subscriptionStatus || !subscriptionStatus.isSubscribed">
+    <div class="subscribe-row row d-flex justify-content-center">
+        <div class="col-12">
+            <h1 class="h1">Subscribe:</h1>
+        </div>
+        <ng-container *ngFor="let subscription of subscriptionContext"
+                      [ngTemplateOutlet]="subscribeTemplate"
+                      [ngTemplateOutletContext]="subscription"></ng-container>
+    </div>
+    <!--<div class="faq-row row">
+        <div class="col-12">
+            <h2 class="h2">Frequently asked questions:</h2>
+        </div>
+        <div class="faq-column col-md-6 col-12">
+            <ng-container *ngFor="let question of faqContext.slice(0, 4)"
+                          [ngTemplateOutlet]="faqTemplate"
+                          [ngTemplateOutletContext]="{question: question}"></ng-container>
+        </div>
+        <div class="faq-column col-md-6 col-12">
+            <ng-container *ngFor="let question of faqContext.slice(4, 8)"
+                          [ngTemplateOutlet]="faqTemplate"
+                          [ngTemplateOutletContext]="{question: question}"></ng-container>
+        </div>
+    </div>-->
+</div>
+<div *ngIf="subscriptionStatus && subscriptionStatus.isSubscribed">
+    <app-active-subscription [dateFrom]="subscriptionStatus.startDate" [dateTo]="subscriptionStatus.endDate"></app-active-subscription>
+</div>

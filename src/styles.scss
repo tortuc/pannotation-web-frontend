@@ -1,0 +1,112 @@
+// Default inspinia styles
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,300,500,700");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,300,500,700,800,900");
+
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap-slider/dist/css/bootstrap-slider.min.css";
+@import "~cropperjs/dist/cropper.min.css";
+@import "~angular2-toaster/toaster.min.css";
+@import "./styles/inspinia";
+@import "./styles/inspinia/animate.css";
+@import "./styles/inspinia/bootstrap-social.css";
+@import "./styles/guide/forms";
+@import "./styles/guide/responsive.scss";
+@import "./styles/guide/markdown";
+
+$charcoal-grey: #393e41;
+
+// FONTS
+$font-family-name: "Avenir";
+
+//noinspection CssUnknownTarget
+@font-face {
+    font-family: $font-family-name;
+    src: url("assets/fonts/AvenirLTStd-Black.otf");
+    font-weight: 900;
+    font-display: swap;
+}
+
+//noinspection CssUnknownTarget
+@font-face {
+    font-family: $font-family-name;
+    src: url("assets/fonts/AvenirLTStd-Heavy.otf");
+    font-weight: 600;
+    font-display: swap;
+}
+
+//noinspection CssUnknownTarget
+@font-face {
+    font-family: $font-family-name;
+    src: url("assets/fonts/AvenirLTStd-Medium.otf");
+    font-display: swap;
+}
+
+
+@import "./styles/base";
+
+/* BOOTSTRAP UPDATE */
+@media (min-width: 1200px) {
+
+    .container {
+        max-width: 1200px;
+    }
+}
+
+// New styles
+html,
+body {
+    font-family: Montserrat, sans-serif;
+}
+
+body {
+    &.locked {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+
+        #page-wrapper {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            -webkit-overflow-scrolling: auto;
+        }
+    }
+}
+
+#page-wrapper {
+    background: #ffffff !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginscreen {
+    color: #e4dbdd;
+}
+
+.h-base {
+    font-family: $font-family-name, sans-serif;
+    color: $charcoal-grey;
+    font-size: 18px;
+    letter-spacing: 2.29px;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.h2 {
+    font-family: $font-family-name, sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 0.94;
+    color: $charcoal-grey;
+    margin-bottom: 60px;
+
+    @include respond-to(small) {
+        font-size: 22px;
+        line-height: 1.36;
+        margin-bottom: 30px;
+    }
+}

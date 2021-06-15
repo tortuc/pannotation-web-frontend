@@ -1,0 +1,85 @@
+<div class="songsheet-details-panel">
+    <div class="container">
+        <div class="row songsheet-details-panel-inner">
+            <div class="col-2 d-none d-md-block">
+                <img class="img-preview" [src]="songsheet.image.compactPath">
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <p class="charcoal-grey songsheet-details__artist" *ngIf="songsheet.artistName && !!songsheet.artistName.length">{{ songsheet.artistName | truncate: [35]}}</p>
+                <p class="very-light-pink songsheet-details__genre__instruments" *ngIf="instruments && !!instruments.length">{{ instruments }}</p>
+                <p class="charcoal-grey songsheet-details__name">{{ songsheet.name | truncate: [17]}}</p>
+            </div>
+            <div class="col-12 d-block d-md-none p-rl-25">
+                <img class="img-preview" [src]="songsheet.image.compactPath">
+            </div>
+            <div class="col-md-4 mt-50 songsheet-details-panel-inner__right">
+                <h4 class="songsheet-details__price_sm charcoal-grey">${{songsheet.price | number : '1.2-2'}}</h4>
+                <button (click)="onAddToCart(songsheet.id)" class="btn btn-primary">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container songsheet-details-info">
+    <div class="row songsheet-details-info-inner">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-5 d-none d-md-block">
+                    <div>
+                        <img class="img-cover" [src]="songsheet.image.originalPath">
+                        <a [href]="songsheet.preview.path" target="_blank"
+                            class="songsheet-details__download orangey-red justify-content-center">Download
+                            PDF-Preview</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 offset-md-1 col-sm-12 offset-sm-0">
+                    <dl class="row" *ngIf="songsheet.genres && !!songsheet.genres.length">
+                        <dt class="d-inline-block brown-grey col-md-3 col-sm-12">Genre:</dt>
+                        <dd class="d-inline-block charcoal-grey col-md-9 col-sm-12">{{songsheet.genres.join(', ')}}</dd>
+                    </dl>
+                    <dl class="row" *ngIf="songsheet.instruments && !!songsheet.instruments.length">
+                        <dt class="d-inline-block brown-grey col-md-3 col-sm-12">Instruments:</dt>
+                        <dd class="d-inline-block charcoal-grey col-md-8 col-sm-12">{{songsheet.instruments.join(', ')}}
+                        </dd>
+                    </dl>
+                    <dl *ngIf="songsheet.producer && !!songsheet.producer.length" class="row">
+                        <dt class="d-inline-block brown-grey col-md-3 col-sm-12">Composer Info:</dt>
+                        <dd class="d-inline-block charcoal-grey col-md-9 col-sm-12">{{songsheet.producer}}</dd>
+                    </dl>
+                    <dl *ngIf="songsheet.arranger && !!songsheet.arranger.length" class="row">
+                        <dt class="d-inline-block brown-grey col-md-3 col-sm-12">Arranger Info:</dt>
+                        <dd class="d-inline-block charcoal-grey col-md-9 col-sm-12">{{songsheet.arranger}}</dd>
+                    </dl>
+
+                    <div class="col-12 d-block d-md-none p-rl-10 mt-30">
+                        <div>
+                            <img class="img-cover" [src]="songsheet.image.originalPath">
+                            <a [href]="songsheet.preview.path" target="_blank"
+                                class="songsheet-details__download orangey-red justify-content-center">Download
+                                PDF-Preview</a>
+                        </div>
+                    </div>
+
+                    <dl class="songsheet-details__description charcoal-grey">
+                        {{ songsheet.description}}
+                    </dl>
+
+                    <div class="audio-player">
+                        <app-songsheet-player [trackPath]="songsheet.track?.path"></app-songsheet-player>
+                    </div>
+
+                    <div class="songsheet-details-info-price">
+                        <h1 class="songsheet-details__price charcoal-grey m-0">${{songsheet.price | number : '1.2-2'}}
+                        </h1>
+                        <button class="btn btn-primary" (click)="onAddToCart(songsheet.id)">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 text-center mt-60" *ngIf="songsheet.youTubeLink && !!songsheet.youTubeLink.length">
+            <iframe class="video songsheet-details__video" [src]="songsheet.youTubeLink | safe"></iframe>
+        </div>
+    </div>
+</div>

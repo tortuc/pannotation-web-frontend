@@ -1,0 +1,60 @@
+@import '../../../../styles/guide/typography';
+@import "../../../../styles/guide/responsive.scss";
+
+.cropper-header {
+    font-weight: 700;
+    color: #000;
+}
+
+.modal-body {
+    max-width: 95vw;
+    padding: 24px 36px 32px;
+
+    @include respond-to(large) {
+        width: 100%;
+    }
+
+    @include respond-to(small) {
+        width: 100%;
+        padding: 12px 18px 16px;
+    }
+
+    .modal-buttons .btn,
+    .modal-buttons .opst-btn {
+        @include respond-to(extra-small) {
+            width: 100%;
+        }
+    }
+
+    .modal-buttons > .btn,
+    .modal-buttons > .opst-btn {
+        margin-top: 24px;
+
+        &:first-child {
+            margin-right: 20px;
+
+            @include respond-to(medium) {
+                margin-right: 0;
+            }
+        }
+
+        &:last-child {
+            @include respond-to(medium) {
+                margin-right: 0;
+                margin-left: 0;
+            }
+        }
+    }
+
+    .modal-buttons .btn:nth-child(2),
+    .modal-buttons .opst-btn:nth-child(2) {
+        @include respond-to(extra-small) {
+            margin-left: 0;
+            margin-top: 8px;
+        }
+    }
+
+    .cropper-wrapper {
+        margin-top: 20px;
+    }
+}

@@ -1,0 +1,17 @@
+<div class="modal-header">
+    {{title}}
+</div>
+<div class="modal-body">
+    <p>{{message}}</p>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <div class="col-sm-6">
+            <button (click)="onDeclineClick()" class="declineBtn btn btn-warning">{{ 'Modals.DeclineBtn' | translate }}</button>
+        </div>
+        <div class="col-sm-6">
+            <button (click)="onAcceptClick()" class="acceptBtn btn btn-success">{{ 'Modals.AcceptBtn' | translate }}</button>
+        </div>
+    </div>
+</div>
+

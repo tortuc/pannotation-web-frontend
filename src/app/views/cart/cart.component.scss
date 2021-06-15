@@ -1,0 +1,151 @@
+@import "../../../styles/defaults/color-constants";
+@import "../../../styles/guide/misc";
+@import "../../../styles/guide/responsive";
+
+:host {
+    @include height-100;
+}
+
+.cart {
+    @include height-100;
+
+    &__title {
+        font-family: "Avenir", sans-serif;
+        font-size: 32px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 0.94;
+        letter-spacing: normal;
+    }
+
+    &__item {
+        position: relative;
+        &-wr {
+            display: flex;
+            align-items: center;
+
+            @include respond-to(small) {
+                flex-direction: column;
+            }
+        }
+
+        &-image {
+            width: 168px;
+            height: 152px;
+
+            & > img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            @include respond-to(small) {
+                height: auto;
+                width: 100%;
+            }
+        }
+
+        &-description {
+            margin-left: 30px;
+            display: flex;
+
+            @include respond-to(medium) {
+                flex-direction: column;
+                margin-left: 0;
+                width: 100%;
+            }
+
+            & > div {
+                width: 315px;
+                padding-right: 30px;
+
+                @include respond-to(large) {
+                    width: 210px;
+                }
+
+                @include respond-to(medium) {
+                    width: 100%;
+                }
+            }
+
+            & p {
+                margin-bottom: 10px;
+            }
+        }
+        &-genres {
+            font-family: "Montserrat", sans-serif;
+            font-size: 11px;
+            font-weight: 900;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: 1.4px;
+        }
+
+        &-price {
+            font-family: "Avenir", sans-serif;
+            font-size: 20px;
+            font-weight: 900;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: 0.5px;
+            color: #212121;
+        }
+
+        &-delete {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border: none;
+            background-color: transparent;
+            padding: 0;
+
+            @include respond-to(extra-large) {
+                top: -20px;
+            }
+
+            &::before,
+            &::after {
+                content: '';
+                height: 2px;
+                width: 100%;
+                display: block;
+                position: absolute;
+                background-color: #000000;
+            }
+
+            &::before {
+                transform: rotate(-45deg);
+            }
+
+            &::after {
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    &__btn {
+        &-back {
+            width: 340px;
+            margin: 30px 0;
+            height: 56px;
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @include respond-to(medium) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+.delimiter {
+    background-color: $brown-grey;
+}

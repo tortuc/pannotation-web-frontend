@@ -1,0 +1,47 @@
+<div class="modal-header">
+    {{ title }}
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="addCardForm" class="controls" (submit)="submit()">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" [placeholder]="'Card.Form.Number' | translate" formControlName="number">
+                        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                    </div>
+                    <small class="red-text" *ngIf="addCardForm.controls['number'].invalid && addCardForm.controls['number'].touched">{{getErrorMessage('number')}}</small>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input class="form-control"  [placeholder]="'Card.Form.Month' | translate" [formControlName]="'month'">
+                                </div>
+                                <div class="devider">/</div>
+                                <div class="col-md-4">
+                                    <input class="form-control"  [placeholder]="'Card.Form.Year' | translate" [formControlName]="'year'">
+                                </div>
+                                <small class="red-text col-md-12" *ngIf="addCardForm.controls['year'].invalid && addCardForm.controls['year'].touched
+                                || addCardForm.controls['month'].invalid && addCardForm.controls['month'].touched
+                                || addCardForm.touched && addCardForm.errors && addCardForm.errors.expirationDateValidation">{{'Card.Form.ExpirationError' | translate}}</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <input class="form-control"  [placeholder]="'Card.Form.CVV' | translate" [formControlName]="'cvv'">
+                            <small class="red-text" *ngIf="addCardForm.controls['cvv'].invalid && addCardForm.controls['cvv'].touched">{{getErrorMessage('cvv')}}</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" [disabled]="!addCardForm.valid" type="submit">{{ 'Card.Form.SaveBtn' | translate }}</button>
+                        <button class="btn btn-default" type="button" (click)="dialogRef.hide()">{{ 'Card.Form.CancelBtn' | translate }}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

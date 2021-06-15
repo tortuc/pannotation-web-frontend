@@ -1,0 +1,63 @@
+@import "../../../styles/base.scss";
+@import "../../../styles/guide/responsive.scss";
+
+$key-note-height: 262px;
+
+.active-subscription {
+    margin-top: -60px;
+
+    .key-note__wr {
+        position: absolute;
+        top: -80px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1;
+
+        .key-note {
+            height: $key-note-height;
+        }
+    }
+}
+
+.active-subscription-title {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.33;
+    color: $charcoal-grey;
+}
+
+.active-subscription-text {
+    font-size: 14px;
+    line-height: 1.71;
+    color: $charcoal-grey;
+}
+
+.active-subscription-dates {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.71;
+    color: $charcoal-grey;
+}
+
+.user-subscribed-block {
+    position: relative;
+    z-index: 2;
+}
+
+#unsubscribeBtn, #unsubscribeBtn:active, #unsubscribeBtn:not(:disabled):not(.disabled):active
+{
+    width: 220px;
+    padding: 15px;
+    display: block;
+    margin: 0 auto;
+    background-color: #ee4036;
+}
+
+#unsubscribeBtn:hover{
+    color: white;
+    background-color: #393e41;
+}

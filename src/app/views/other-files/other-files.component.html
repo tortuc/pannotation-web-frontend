@@ -1,0 +1,38 @@
+<div class="other-files-details-panel">
+    <div class="container">
+        <div class="row other-files-details-panel-inner">
+            <div class="col-2 d-none d-md-block">
+                <img class="img-preview" [src]="otherFile.preview.compactPath">
+            </div>
+            <div class="col-md-6 col-sm-12 d-flex flex-column justify-content-center">
+                <p class="very-light-pink other-files-details__type">{{ types[otherFile.fileType] }}</p>
+                <p class="charcoal-grey other-files-details__name">{{ otherFile.name }}</p>
+            </div>
+            <div class="col-12 d-block d-md-none p-rl-25">
+                <img class="img-preview" [src]="otherFile.preview.originalPath">
+            </div>
+            <div class="col-md-4 mt-50 other-files-details-panel-inner__right">
+                <button (click)="onSaveClick(otherFile.file.path)" class="btn btn-primary">
+                    {{otherFile.fileType === ap? 'Download episode' : 'Download pdf'}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container other-files-details-info">
+    <div class="row">
+        <div class="col-5 d-none d-md-block">
+            <div class="other-files-details-info__img-wr">
+                <img class="img-cover" [src]="otherFile.preview.originalPath" alt="Image">
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-1 col-sm-12 offset-sm-0">
+            <!--Here will be markdown-->
+            <div class="other-files__content" marked [text]="otherFile.description"></div>
+            <div class="audio-player" *ngIf="otherFile.fileType === ap">
+                <app-songsheet-player [track]="this.file | async"></app-songsheet-player>
+            </div>
+        </div>
+    </div>
+</div>

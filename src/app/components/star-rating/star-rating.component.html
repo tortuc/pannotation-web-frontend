@@ -1,0 +1,2 @@
+<span class="star" *ngFor="let elem of highlighted" [ngClass]="{ 'highlighted': elem <= highlightTill}"
+      (click)="rate(elem)" (mouseleave)="clear()" (mouseover)="highlight(elem)"></span>

@@ -1,0 +1,10 @@
+span.star {
+    display: inline-block;
+    background: url('src/assets/img/stars.png') 0 -16px repeat-x;
+    width: 16px;
+    height: 16px;
+}
+
+.highlighted {
+    background: url('src/assets/img/stars.png') 0 0!important;
+}

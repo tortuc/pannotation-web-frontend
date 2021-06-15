@@ -1,0 +1,89 @@
+@import "../../../styles/defaults/color-constants";
+@import "../../../styles/guide/misc";
+@import "../../../styles/guide/responsive";
+
+:host {
+    @include height-100;
+}
+
+.checkout {
+    @include height-100;
+
+    &__title {
+        font-family: "Avenir", sans-serif;
+        font-size: 32px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 0.94;
+        letter-spacing: normal;
+    }
+
+    &__subtitle {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        font-weight: 900;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 2.66px;
+        text-transform: uppercase;
+        margin-top: 30px;
+
+    }
+
+    .order-details {
+        padding: 45px;
+        border-radius: 5px;
+        box-shadow: 0 5px 50px -25px rgba(0, 0, 0, 0.25);
+        position: relative;
+
+        &__title {
+            font-family: "Montserrat", sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.33;
+            letter-spacing: normal;
+        }
+
+        &__total {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+
+            & > p {
+                margin-bottom: 0;
+            }
+
+            & > p:first-child {
+                font-family: "Montserrat", sans-serif;
+                font-size: 45px;
+                font-weight: 800;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                text-align: center;
+                margin-right: 15px;
+            }
+        }
+
+        & > button {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding: 0 20px;
+            height: 56px;
+            border-radius: 28.1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:disabled {
+                background-color: #999999;
+                border-color: #999999;
+            }
+        }
+    }
+}

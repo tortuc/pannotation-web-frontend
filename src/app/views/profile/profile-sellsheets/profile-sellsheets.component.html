@@ -1,0 +1,29 @@
+<div class="profile-agreement">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-8 col-xl-7">
+                <div class="subscribe-card">
+                    <div class="key-note__wr">
+                        <img class="key-note" [src]="'/assets/img/ic-key-note-light-gray.svg'" alt="key note">
+                    </div>
+                    <div class='user-subscribed-block'>
+                        <div class="subscribe-card__agreement-block">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" 
+                                    class="custom-control-input"
+                                    (change)="agreementCheckboxChange()" [value]="(agreementCheckbox | async)"
+                                    id="customControl">
+                                <label class="custom-control-label" for="customControl">
+                                </label>
+                                <p class="brown-grey">I agree to the <a routerLink="/upload-agreement">Upload Agreement</a></p>
+                            </div>
+                        </div>
+
+                        <h3 class='text-center'><a [class.disabled]="!(agreementCheckbox | async)" (click)="checkAgreement($event)" class="link-text"
+                                href="mailto:pannotationmusic@gmail.com?subject=Pannotation Files for Submission">Upload Now</a></h3>                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

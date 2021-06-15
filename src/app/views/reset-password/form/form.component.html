@@ -1,0 +1,31 @@
+<div class="authentication-wrapper w-100 h-100">
+    <div class="authentication-container" [class.wider]="isSuccessful | async">
+        <div content class="w-100">
+            <div class="row h-100">
+                <div class="col-lg-12" *ngIf="!(isSuccessful | async)">
+                    <div toolbar>
+                        <p class="reset-instructions">Enter your email address and we’ll send you a link to reset your
+                            password</p>
+                    </div>
+                    <form [formGroup]="form" (ngSubmit)="submit(model)">
+                        <formly-form [form]="form" [fields]="fields" [model]="model">
+                            <button type="submit" [disabled]="!form.valid" class="btn btn-secondary w-100">
+                                {{ 'Reset.SendBtn' | translate }}
+                            </button>
+                        </formly-form>
+                    </form>
+                    <p class="below-auth text-center">Return <a [routerLink]="['/sign-in']">Sign in</a></p>
+                </div>
+                <div class="message-with-note col-lg-12 h-100" *ngIf="(isSuccessful | async)">
+                    <div class="key-note__wr">
+                        <img class="key-note" [src]="icKeyNote" alt="key note">
+                    </div>
+                    <h2 class="h2 text-center">Check your email</h2>
+                    <p class="text">We sent an email to {{form.get('email').value}}, which contains a link to reset your
+                        Pannotation password.</p>
+                    <p class="below-auth text-center">Back to <a [routerLink]="['/sign-in']">Sign in</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

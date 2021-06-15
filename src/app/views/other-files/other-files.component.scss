@@ -1,0 +1,134 @@
+@import "../../../styles/base";
+@import "../../../styles/guide/responsive";
+@import "../../../styles/defaults/color-classes";
+
+.other-files-details-panel {
+    display: flex;
+    box-shadow: 0 9px 15px 0 rgba(160, 160, 160, 0.11);
+
+    div.col-2 {
+        margin: auto 0;
+    }
+}
+
+.other-files-details-panel-inner {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    min-height: 152px;
+    max-height: 178px;
+
+    @include respond-to(extra-large) {
+        height: auto;
+        max-height: none;
+    }
+
+    &__right {
+
+        button{
+            float: right;
+
+            @include respond-to(medium) {
+                float: none;
+            }
+        }
+
+        @include respond-to(large) {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @include respond-to(medium) {
+            margin-top: 15px;
+            align-items: center;
+        }
+    }
+
+    @include respond-to(medium) {
+        text-align: center;
+        height: auto;
+    }
+}
+
+.other-files-details-info {
+    margin-top: 60px;
+    margin-bottom: 120px;
+
+
+}
+
+.img-preview {
+    max-width: 168px;
+    max-height: 152px;
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    @include respond-to(medium) {
+        max-width: none;
+        max-height: none;
+    }
+}
+
+.img-cover {
+    border-radius: 15px;
+    width: 100%;
+    box-shadow: 0px 0px 20px 0 rgba(160, 160, 160, 0.5);
+
+    &__wr {
+        width: 470px;
+        height: 432px;
+    }
+}
+
+
+.other-files-details-info {
+    margin-top: 60px;
+    margin-bottom: 120px;
+
+    @include respond-to(medium) {
+        margin-top: 45px;
+        margin-bottom: 60px;
+    }
+
+    &__img-wr {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.audio-player {
+    margin-top: 30px;
+    max-height: 100px;
+
+    @include respond-to(medium) {
+        margin-top: 45px;
+    }
+}
+
+.other-files-details {
+    &__name {
+        font-size: 45px;
+        font-weight: 800;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+
+        @include respond-to(medium) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__type {
+        font-family: "Montserrat", sans-serif;
+        font-size: 11px;
+        font-weight: 900;
+        font-stretch: normal;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 1.4px;
+    }
+}

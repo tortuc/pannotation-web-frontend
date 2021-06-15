@@ -1,0 +1,30 @@
+<div class="authentication-wrapper w-100 h-100">
+    <div class="authentication-container">
+        <div content>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div toolbar>
+                        <h2 class="h2 font-bold text-center">{{ 'SignIn.FormHeader'| translate }}</h2>
+                    </div>
+                    <form [formGroup]="form" (ngSubmit)="submit(model)">
+                        <formly-form [form]="form" [fields]="fields" [model]="model">
+                            <p class="forgot-password text-right">
+                                <a class="col-md-12" [routerLink]="['/reset-password']">
+                                    {{ 'SignIn.Restore password' | translate }}
+                                </a>
+                            </p>
+                            <button [disabled]="!form.valid" type="submit" class="btn btn-secondary w-100">
+                                {{ 'SignIn.SignInBtn' | translate }}
+                            </button>
+                        </formly-form>
+                    </form>
+                    <p class="below-auth text-center">
+                        Don't have an account? <a
+                            [routerLink]="['/sign-up']">{{ 'SignIn.Create an account' | translate }}</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

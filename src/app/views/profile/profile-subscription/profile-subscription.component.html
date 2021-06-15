@@ -1,0 +1,33 @@
+<div class="profile-subscription">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-9 col-xl-8">
+                <div class="subscribe-card" [class.inverted]="true" *ngIf="!subscriptionStatus.isSubscribed">
+                    <div class="key-note__wr">
+                        <img class="key-note" [src]="'/assets/img/ic-key-note-light-gray.svg'" alt="key note">
+                    </div>
+                    <p class="subscribe-card__title">Monthly Subscription</p>
+                    <p class="subscribe-card__description">Fully access all non-score materials including articles, media, podcasts, interviews and much more. Get discounted rates on scores and upload materials at no additional cost.</p>
+                    <p class="subscribe-card__price">$9.99</p>
+                    <div class="subscribe-card__agreement-block">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox"
+                                   class="custom-control-input"
+                                   (change)="subscriptionCheckboxChange()"
+                                   [value]="(subscriptionCheckbox | async)"
+                                   id="customControlAutosizing">
+                            <label class="custom-control-label" for="customControlAutosizing">
+                            </label>
+                            <p class="brown-grey">I agree to the <a routerLink="/subscription-agreement">Subscription Agreement</a> and the <a
+                                routerLink="/upload-agreement">Upload Agreement</a></p>
+                        </div>
+                        <button class="btn btn-primary" (click)="handleOption()" [disabled]="!(subscriptionCheckbox | async)">Subscribe</button>
+                    </div>
+                </div>
+                <div *ngIf="subscriptionStatus.isSubscribed">
+                    <app-active-subscription [dateFrom]="subscriptionStatus.startDate" [dateTo]="subscriptionStatus.endDate"></app-active-subscription>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="order-details">
+    <h5 class="order-details__title charcoal-grey">Order Details:</h5>
+    <p class="typography-body-level-1-regular brown-grey d-flex justify-content-between mt-4">
+        Amount:
+        <span>{{cart?.items.length}} {{cart?.itemsTypo}}</span>
+    </p>
+    <p class="typography-body-level-1-regular brown-grey d-flex justify-content-between mt-3">
+        Date:
+        <span>{{cart?.orderDate | date}}</span>
+    </p>
+    <div class="order-details__total d-flex justify-content-between align-items-center">
+        <p class="charcoal-grey">Total:</p>
+        <p class="charcoal-grey">${{cart?.totalAmount | number : '1.2-2'}}</p>
+    </div>
+    <button class="btn btn-primary w-100"
+            (click)="onSubmitClick()"
+            [disabled]="disabled || !cart?.items.length">
+        {{ (checkout || isCartFree) ? 'Confirm Order' : 'Proceed to Checkout' }}
+    </button>
+    <a class="order-details__edit-btn" routerLink="/cart" *ngIf="checkout">Edit</a>
+</div>

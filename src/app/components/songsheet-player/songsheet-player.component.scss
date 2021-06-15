@@ -1,0 +1,145 @@
+@import "../../../styles/defaults/color-constants";
+@import "../../../styles/guide/typography";
+
+.player {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 0 34px 0 rgba(160, 160, 160, 0.15);
+
+    &-slider {
+        width: 100%;
+
+        ::ng-deep {
+            .slider {
+                width: 100%;
+                height: 0;
+            }
+
+            .slider-track {
+                height: 4px;
+                border-radius: 2px;
+                background: $very-light-pink none;
+                box-shadow: none;
+                margin-top: -7px;
+
+                .slider-selection {
+                    background: $orangey-red none;
+                    box-shadow: none;
+                }
+            }
+
+            .slider-handle {
+                width: 10px;
+                height: 10px;
+
+                visibility: hidden;
+            }
+        }
+    }
+
+    &-navigation {
+        margin-top: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__primary {
+            display: flex;
+            align-items: center;
+
+            & > button {
+                background-color: transparent;
+                border: none;
+                width: 14px;
+                height: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                margin: 0 11px;
+                padding: 0;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                & > img {
+                    height: 100%;
+                }
+            }
+
+            .player-btn-play {
+                padding-left: 4px;
+            }
+        }
+
+        &__secondary {
+            display: flex;
+
+            .volume-slider {
+                width: 107px;
+                height: 12px;
+
+                ::ng-deep {
+                    .slider {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    .slider-track {
+                        height: 4px;
+                        border-radius: 2px;
+                        background: $very-light-pink none;
+                        box-shadow: none;
+                        margin-top: -2px;
+
+                        .slider-selection {
+                            background: $charcoal-grey none;
+                            box-shadow: none;
+                        }
+                    }
+
+                    .slider-handle {
+                        width: 12px;
+                        height: 12px;
+                        box-shadow: none;
+                        margin-left: -4px;
+                        background: $charcoal-grey none;
+                    }
+                }
+            }
+        }
+    }
+
+    &-time {
+        @extend .typography-body-level-1-medium;
+        margin: 0 16px 0 0;
+        color: $charcoal-grey;
+    }
+
+    &__volume-btn {
+        $sound-on: url(/assets/img/ic-sound-on.svg);
+        $sound-off: url(/assets/img/ic-sound-off.svg);
+
+        border: none;
+        background: transparent $sound-on no-repeat;
+        display: flex;
+        width: 27px;
+        height: 21px;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin-left: 15px;
+
+        &.muted {
+            background-image: $sound-off;
+        }
+    }
+
+}

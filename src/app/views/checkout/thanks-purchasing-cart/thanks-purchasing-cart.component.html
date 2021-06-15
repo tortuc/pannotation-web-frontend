@@ -1,0 +1,47 @@
+<div class="thanks-purchasing-cart mt-60" *ngIf="!!details">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="thankfulness-block">
+                    <h3 class="thankfulness-block__title charcoal-grey">Thank you, {{(user | async)?.firstName}}!</h3>
+                    <p class="thankfulness-block__order-number brown-grey">
+                        Order:
+                        <span>{{details?.orderId}}</span>
+                    </p>
+                    <a class="btn btn-primary thankfulness-block__link text-uppercase" routerLink="/music-scores">Back to shopping</a>
+                </div>
+            </div>
+            <div class="col-12 mt-30">
+                <div class="order-details">
+                    <h5 class="charcoal-grey">Order Details:</h5>
+
+                    <div class="cart__item-wr" *ngFor="let songsheet of details?.songsheets">
+                        <div class="cart__item-image">
+                            <img [src]="songsheet.image.compactPath" alt="Songsheet image">
+                        </div>
+                        <div class="cart__item-description">
+                            <div>
+                                <p class="typography-body-level-1-medium charcoal-grey text-ellipsis">{{songsheet.artistName}}</p>
+                                <p class="cart__item-genres very-light-pink text-uppercase">{{songsheet.getInstruments}}</p>
+                                <p class="cart__item-genres very-light-pink text-uppercase">{{songsheet.getGenres}}</p>
+                                <p class="typography-heading-level-6-bold charcoal-grey text-ellipsis">{{songsheet.name}}</p>
+                            </div>
+                            <p class="cart__item-price">${{songsheet.price}}</p>
+                        </div>
+                    </div>
+
+                    <div class="order-details__total">
+                        <p class="order-details__total-amount charcoal-grey">
+                            Amount:
+                            <span>{{details?.songsheets.length}}</span>
+                        </p>
+                        <p class="order-details__total-price charcoal-grey">
+                            Total:
+                            <span>${{details?.orderAmount}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

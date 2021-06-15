@@ -1,0 +1,58 @@
+@import "../../../../styles/guide/responsive.scss";
+@import "../../../../styles/guide/typography";
+
+.subpage-content.text-only {
+    margin-top: 0px;
+    margin-bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    line-height: 26px;
+
+    @include respond-to(large) {
+        flex: none !important;
+        width: 90% !important;
+    }
+}
+
+.subpage-content {
+    height: auto;
+    margin-bottom: 65px;
+}
+
+.page-title {
+    font-size: 32px;
+    font-weight: 500;
+}
+.table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-color: #ccc;
+    width: 100%;
+}
+
+.table .table-header {
+    font-weight: bold;
+}
+.table th {
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px 5px;
+    overflow: hidden;
+    word-break: normal;
+    border: 1px solid #ccc;
+    color: #111;
+    background-color: #f0f0f0;
+}
+
+ol {
+    li {
+        list-style: inherit;
+    }
+
+    ul {
+        list-style: disc;
+        li {
+            list-style: disc;
+        }
+    }
+}

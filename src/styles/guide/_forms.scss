@@ -1,0 +1,226 @@
+@import '../guide/responsive.scss';
+@import "../base.scss";
+
+.auth-field {
+    div.form-group {
+        margin-bottom: 20px;
+    }
+
+    div.invalid-feedback {
+        padding-left: 20px;
+    }
+
+    label {
+        font-size: 12px;
+        margin: 0 0 5px 20px;
+        color: $charcoal-grey;
+        font-weight: 500;
+
+        &::before {
+            height: 25px;
+            width: 25px;
+            border: 1px solid $charcoal-grey !important;
+            background-color: $white !important;
+            margin-right: 10px;
+        }
+
+        &::after {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    input {
+        height: 62px;
+        border: 1px solid $brown-grey;
+        border-radius: 4px;
+        background-color: $white;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.43;
+        color: $charcoal-grey;
+
+        @include respond-to(medium) {
+            font-size: 16px;
+        }
+
+        &.is-dirty {
+            border: 1px solid #3b3b3b;
+        }
+
+        &::placeholder {
+            color: $light-grey;
+            font-weight: 500;
+        }
+
+        &:focus {
+            border: 1px solid $peachy-pink;
+        }
+
+        &[type=number]::-webkit-inner-spin-button,
+        &[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+    }
+
+    textarea {
+        border: 1px solid $brown-grey;
+        border-radius: 4px;
+        background-color: $white;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.43;
+        color: $charcoal-grey;
+        resize: none;
+
+        &.is-dirty {
+            border: 1px solid #3b3b3b;
+        }
+
+        &::placeholder {
+            color: $light-grey;
+            font-weight: 500;
+        }
+
+        &:focus {
+            border: 1px solid $peachy-pink;
+        }
+    }
+
+    &.expiration-date-input {
+        width: 30%;
+        padding-left: 15px;
+
+        label {
+            white-space: nowrap;
+        }
+
+        ul {
+            min-width: unset;
+        }
+    }
+
+    &.cvv-input {
+        width: 37%;
+        padding-right: 15px;
+        margin-left: auto;
+
+        input {
+            padding-right: 15px;
+        }
+    }
+}
+
+.auth-checkbox {
+    margin-bottom: 10px;
+
+    label {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.5;
+        color: $charcoal-grey;
+        padding-left: 10px;
+        padding-top: 6px;
+    }
+}
+
+.auth-checkbox-label {
+    margin-bottom: 15px;
+    font-size: 12px;
+    color: $brown-grey;
+    position: relative;
+    top: 6px;
+
+    label {
+        font-size: 12px;
+        line-height: 1.5;
+        color: $charcoal-grey;
+        margin: 0;
+    }
+
+    @include respond-to(small) {
+        top: 16px;
+        width: 235px;
+    }
+}
+
+.question-label {
+    div {
+        display: inline-block;
+    }
+
+    img {
+        margin-left: 5px;
+        cursor: pointer;
+    }
+
+    .question-tooltip {
+        display: none;
+        position: absolute;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.16);
+        padding: 20px;
+        z-index: 10;
+        background-color: $white;
+    }
+
+    img:hover {
+        &+.question-tooltip {
+            display: inline-block;
+            font-size: 14px;
+            color: $light-grey;
+        }
+    }
+}
+
+.custom-checkbox .custom-control-label::after {
+    background-image: url('/assets/img/tick.png') !important;
+    opacity: 0;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+    opacity: 1;
+}
+
+.complete-profile-state,
+.complete-profile-zip {
+    @include respond-to(medium) {
+        padding-left: 0;
+        padding-right: 0;
+
+        &.complete-profile-state {
+            margin-bottom: 0 !important;
+        }
+    }
+}
+
+button[type=submit] {
+    background-color: $charcoal-grey !important;
+    border-color: $charcoal-grey !important;
+}
+
+.confirm-password-input div.form-group {
+    @include respond-to(small) {
+        margin-bottom: 0;
+    }
+}
+
+.form-actions {
+    margin-top: 25px;
+    margin-bottom: 120px;
+}
+// border for any formly element with error
+.has-error .form-control, .has-error .form-control:focus {
+    border: solid 1px #3b3b3b;
+}
+
+.was-validated .form-control:invalid, .form-control.is-invalid {
+    background-image: none;
+}
+
+.form-control.ng-valid {
+    border: 1px solid #393E41;
+}

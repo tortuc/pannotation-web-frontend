@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="footer-row">
+        <div class="privacy-routes">
+            <a [routerLink]="['/privacy-policy']">Privacy Policy</a>
+            <a [routerLink]="['/contact-us']">Contact Us</a>
+        </div>
+        <p class="copy text-center mb-0 mt-0">© 2020 Pannotation.</p>
+        <div class="social">
+            <a class="social-link" *ngFor="let social of socials" [href]="social.link" target="_blank">
+                <img [src]="social.icon" alt="social">
+            </a>
+        </div>
+    </div>
+</div>

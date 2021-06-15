@@ -1,0 +1,12 @@
+<app-view-container>
+    <ng-container toolbar>
+        <h2>{{ 'DataProcessing.Title' | translate }}</h2>
+    </ng-container>
+
+    <ng-container content>
+        <div class="row">
+            <div class="subpage-content text-only col-md-12" [innerHtml]="docHtml">
+            </div>
+        </div>
+    </ng-container>
+</app-view-container>

@@ -1,0 +1,5 @@
+<div class="photo-container">
+    <div class="photo-wrapper" [ngStyle]="{'width.px': size?.width, 'height.px': size?.width}">
+        <img class="photo" [src]="image | async" alt='image'>
+    </div>
+</div>

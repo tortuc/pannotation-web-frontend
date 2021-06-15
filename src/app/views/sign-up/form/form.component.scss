@@ -1,0 +1,47 @@
+@import '../../../../styles/guide/responsive.scss';
+@import "../../../../styles/base.scss";
+@import '../../../../styles/shared/auth.styles.scss';
+
+.h2 {
+    margin-bottom: 20px;
+}
+
+.have-account {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+
+    span {
+        color: $light-grey;
+        margin-right: 10px;
+    }
+
+    a {
+        color: $charcoal-grey;
+    }
+}
+
+.signup-verify-text {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 38px;
+    color: $charcoal-grey;
+    font-family: Avenir;
+    margin-bottom: 15px;
+}
+
+.signup-check-inbox {
+    color: $brown-grey;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.good-btn {
+    height: 56px;
+    width: 155px;
+    border-radius: 28px;
+    background-color: $orange-red;
+    color: $white !important;
+    padding-top: 16px;
+}

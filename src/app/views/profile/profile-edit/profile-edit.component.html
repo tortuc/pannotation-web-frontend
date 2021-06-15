@@ -1,0 +1,44 @@
+<div class="profile-info">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 d-flex flex-column align-items-center">
+                <app-photo [photo]="photo | async" [size]="{ height: 150, width: 150 }"></app-photo>
+                <div class="profile-avatar__actions">
+                    <label for="upload" class="typography-body-level-1-regular">
+                        {{"Profile.Avatar.Upload" | translate}}
+                    </label>
+                    <input #imageInput
+                           (change)="changePhotoHandler($event.target.files[0])"
+                           type="file"
+                           name="pic"
+                           id="upload"
+                           class="d-none"
+                           accept="image/jpeg,image/png,image/jpg">
+                    <button class="typography-body-level-1-regular orangey-red" (click)="onPhotoDelete()">{{"Profile.Avatar.Delete" |
+                        translate}}
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-lg-0 mt-5">
+                <div class="profile-form">
+                    <h3 class="typography-heading-level-3-web charcoal-grey mb-3">
+                        {{"Profile.Form.Title" | translate}}
+                    </h3>
+                    <form [formGroup]="profileForm" (ngSubmit)="submit(model)">
+                        <formly-form [form]="profileForm" [fields]="fields" [model]="model">
+                            <div class="form-actions d-flex justify-content-end">
+                                <button type="button" (click)="onCancelClick()" class="btn btn-white d-inline-block">
+                                    Cancel
+                                </button>
+                                <button type="submit" [disabled]="!profileForm.valid"
+                                        class="btn btn-secondary d-inline-block ml-3">
+                                    Save
+                                </button>
+                            </div>
+                        </formly-form>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
